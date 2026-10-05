@@ -1,0 +1,306 @@
+======================================================================
+AUDIT DU DATASET SFT
+======================================================================
+
+Fichier              : data/processed/sft_train.jsonl
+Nombre de records    : 4000
+Tokenizer             : Qwen/Qwen3-1.7B-Base
+MAX_SEQ_LENGTH        : 2048
+
+======================================================================
+1. LANGUES
+======================================================================
+fr              :   2667 ( 66.67 %)
+en              :   1333 ( 33.32 %)
+
+======================================================================
+2. TASKS
+======================================================================
+medical_mcq                    :   2667 ( 66.67 %)
+medical_qa                     :   1333 ( 33.32 %)
+
+======================================================================
+3. SOURCES
+======================================================================
+FrenchMedMCQA                  :   1334 ( 33.35 %)
+MedQuAD                        :   1333 ( 33.32 %)
+MediQAl                        :   1333 ( 33.32 %)
+
+======================================================================
+4. LONGUEURS TOKEN
+======================================================================
+
+INSTRUCTIONS
+----------------------------------------------------------------------
+min     : 5.0
+p25     : 15.0
+median  : 76.0
+mean    : 71.8
+p75     : 106.0
+p95     : 154.0
+max     : 471.0
+
+RESPONSES
+----------------------------------------------------------------------
+min     : 8.0
+p25     : 16.0
+median  : 32.0
+mean    : 106.0
+p75     : 100.0
+p95     : 421.0
+max     : 4287.0
+
+TEXTE COMPLET DU SFT
+----------------------------------------------------------------------
+min     : 104.0
+p25     : 180.0
+median  : 214.0
+mean    : 263.4
+p75     : 274.0
+p95     : 523.0
+max     : 4382.0
+
+======================================================================
+5. RISQUE DE TRONCATURE À 2048 TOKENS
+======================================================================
+
+Exemples > 2048 tokens : 7 (0.18 %)
+Réponses seules > 2048 tokens : 7 (0.18 %)
+
+======================================================================
+6. DOUBLONS
+======================================================================
+
+IDs uniques        : 4000
+IDs dupliqués      : 0
+
+======================================================================
+7. CHAMPS MANQUANTS
+======================================================================
+
+Aucun champ manquant détecté.
+
+======================================================================
+8. 20 RÉPONSES LES PLUS LONGUES
+======================================================================
+
+[01] id=d699f78fd61debee lang=en tokens=4287
+QUESTION: What are the treatments for Overweight and Obesity ?
+RESPONSE: Successful weight-loss treatments include setting goals and making lifestyle changes, such as eating fewer calories and being physically active. Medicines and weight-loss surgery also are options for some people if lifestyle changes aren't enough. Set Realistic Goals Setting realistic weight-loss goals is an important first step to losing weight. For Adults Try to lose 5 to 10 percent of your current weight over 6 months. This will lower your risk for coronary heart disease (CHD) and other conditions. The best way to lose weight is slowly. A weight loss of 1 to 2 pounds a week is do-able, safe, and will help you keep off the weight. It also will give you the time to make new, healthy lifesty
+----------------------------------------------------------------------
+[02] id=cc132f85166250a0 lang=en tokens=4266
+QUESTION: What are the treatments for Non-Small Cell Lung Cancer ?
+RESPONSE: Key Points - There are different types of treatment for patients with non-small cell lung cancer. - Nine types of standard treatment are used: - Surgery - Radiation therapy - Chemotherapy - Targeted therapy - Laser therapy - Photodynamic therapy (PDT) - Cryosurgery - Electrocautery - Watchful waiting - New types of treatment are being tested in clinical trials. - Chemoprevention - Radiosensitizers - New combinations - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with non-small cell lung cancer.
+----------------------------------------------------------------------
+[03] id=0787d5c0fc603c1b lang=en tokens=3552
+QUESTION: What are the treatments for Pancreatic Neuroendocrine Tumors (Islet Cell Tumors) ?
+RESPONSE: Key Points - There are different types of treatment for patients with pancreatic NETs. - Six types of standard treatment are used: - Surgery - Chemotherapy - Hormone therapy - Hepatic arterial occlusion or chemoembolization - Targeted therapy - Supportive care - New types of treatment are being tested in clinical trials. - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with pancreatic NETs. Different types of treatments are available for patients with pancreatic neuroendocrine tumors (NETs). Some
+----------------------------------------------------------------------
+[04] id=ab307a2110382e04 lang=en tokens=2662
+QUESTION: What are the treatments for Urinary Incontinence in Men ?
+RESPONSE: Treatment depends on the type of UI. Urgency Incontinence As a first line of therapy for urgency incontinence, a health care professional may recommend the following techniques to treat a mans problem: - behavioral and lifestyle changes - bladder training - pelvic floor exercises - urgency suppression If those treatments are not successful, the following additional measures may help urgency incontinence: - medications - electrical nerve stimulation - bulking agents - surgery A health care professional may recommend other treatments for men with urgency incontinence caused by BPH. More information is provided in the NIDDK health topic, Prostate Enlargement: Benign Prostatic Hyperplasia. Behav
+----------------------------------------------------------------------
+[05] id=dfe34a1cc4260f0b lang=en tokens=2558
+QUESTION: What are the treatments for Parasites - Lice - Head Lice ?
+RESPONSE: General Guidelines Treatment for head lice is recommended for persons diagnosed with an active infestation. All household members and other close contacts should be checked; those persons with evidence of an active infestation should be treated. Some experts believe prophylactic treatment is prudent for persons who share the same bed with actively-infested individuals. All infested persons (household members and close contacts) and their bedmates should be treated at the same time. Some pediculicides (medicines that kill lice) have an ovicidal effect (kill eggs). For pediculicides that are only weakly ovicidal or not ovicidal, routine retreatment is recommended. For those that are more stron
+----------------------------------------------------------------------
+[06] id=8c53294d2a2d0d32 lang=en tokens=2223
+QUESTION: What are the treatments for Adult Acute Lymphoblastic Leukemia ?
+RESPONSE: Key Points - There are different types of treatment for patients with adult ALL. - The treatment of adult ALL usually has two phases. - Four types of standard treatment are used: - Chemotherapy - Radiation therapy - Chemotherapy with stem cell transplant - Targeted therapy - New types of treatment are being tested in clinical trials. - Biologic therapy - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Patients with ALL may have late effects after treatment. - Follow-up tests may be needed. There are different types of treatment for patients with adult ALL. Different types of tre
+----------------------------------------------------------------------
+[07] id=0677f9f4caa4ae46 lang=en tokens=2099
+QUESTION: What are the treatments for Hypopharyngeal Cancer ?
+RESPONSE: Key Points - There are different types of treatment for patients with hypopharyngeal cancer. - Three types of standard treatment are used: - Surgery - Radiation therapy - Chemotherapy - New types of treatment are being tested in clinical trials. - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with hypopharyngeal cancer. Different types of treatment are available for patients with hypopharyngeal cancer. Some treatments are standard (the currently used treatment), and some are being tested in clin
+----------------------------------------------------------------------
+[08] id=87f03883c6c4cbef lang=en tokens=1580
+QUESTION: What are the stages of Uterine Sarcoma ?
+RESPONSE: Key Points - After uterine sarcoma has been diagnosed, tests are done to find out if cancer cells have spread within the uterus or to other parts of the body. - Uterine sarcoma may be diagnosed, staged, and treated in the same surgery. - There are three ways that cancer spreads in the body. - Cancer may spread from where it began to other parts of the body. - The following stages are used for uterine sarcoma: - Stage I - Stage II - Stage III - Stage IV After uterine sarcoma has been diagnosed, tests are done to find out if cancer cells have spread within the uterus or to other parts of the body. The process used to find out if cancer has spread within the uterus or to other parts of the body
+----------------------------------------------------------------------
+[09] id=7225f523389721cf lang=en tokens=1546
+QUESTION: What are the stages of Adult Hodgkin Lymphoma ?
+RESPONSE: Key Points - After adult Hodgkin lymphoma has been diagnosed, tests are done to find out if cancer cells have spread within the lymph system or to other parts of the body. - There are three ways that cancer spreads in the body. - Stages of adult Hodgkin lymphoma may include A, B, E, and S. - The following stages are used for adult Hodgkin lymphoma: - Stage I - Stage II - Stage III - Stage IV - Adult Hodgkin lymphoma may be grouped for treatment as follows: - Early Favorable - Early Unfavorable - Advanced After adult Hodgkin lymphoma has been diagnosed, tests are done to find out if cancer cells have spread within the lymph system or to other parts of the body. The process used to find out if
+----------------------------------------------------------------------
+[10] id=ea8965c659f33e94 lang=en tokens=1473
+QUESTION: What are the stages of Adult Soft Tissue Sarcoma ?
+RESPONSE: Key Points - After adult soft tissue sarcoma has been diagnosed, tests are done to find out if cancer cells have spread within the soft tissue or to other parts of the body. - There are three ways that cancer spreads in the body. - Cancer may spread from where it began to other parts of the body. - The following stages are used for adult soft tissue sarcoma: - Stage I - Stage II - Stage III - Stage IV After adult soft tissue sarcoma has been diagnosed, tests are done to find out if cancer cells have spread within the soft tissue or to other parts of the body. The process used to find out if cancer has spread within the soft tissue or to other parts of the body is called staging. Staging of s
+----------------------------------------------------------------------
+[11] id=25acb1445965192e lang=en tokens=1469
+QUESTION: What causes Lung Cancer ?
+RESPONSE: Tobacco Products and Cancer Using tobacco products has been shown to cause cancer. In fact, smoking tobacco, using smokeless tobacco, and being exposed regularly to secondhand tobacco smoke are responsible for a large number of cancer deaths in the U.S. each year. Cigarette Smoking Causes Lung Cancer Cigarette smoking is the number one cause of lung cancer. Scientists have reported widely on the link between cancer and smoking since the 1960s. Since then, study after study has provided more proof that cigarette smoking is the primary cause of lung cancer. Before cigarette smoking became popular after World War I, doctors rarely, if ever, saw patients with lung cancer. But today, lung cancer 
+----------------------------------------------------------------------
+[12] id=f46ce99e4c9006c1 lang=en tokens=1422
+QUESTION: What are the stages of Penile Cancer ?
+RESPONSE: Key Points - After penile cancer has been diagnosed, tests are done to find out if cancer cells have spread within the penis or to other parts of the body. - There are three ways that cancer spreads in the body. - Cancer may spread from where it began to other parts of the body. - The following stages are used for penile cancer: - Stage 0 (Carcinoma in Situ) - Stage I - Stage II - Stage III - Stage IV After penile cancer has been diagnosed, tests are done to find out if cancer cells have spread within the penis or to other parts of the body. The process used to find out if cancer has spread within the penis or to other parts of the body is called staging. The information gathered from the st
+----------------------------------------------------------------------
+[13] id=7d9d45aa25bdb50a lang=en tokens=1399
+QUESTION: How to diagnose Adult Central Nervous System Tumors ?
+RESPONSE: Tests that examine the brain and spinal cord are used to diagnose adult brain and spinal cord tumors. The following tests and procedures may be used: - Physical exam and history : An exam of the body to check general signs of health, including checking for signs of disease, such as lumps or anything else that seems unusual. A history of the patients health habits and past illnesses and treatments will also be taken. - Neurological exam : A series of questions and tests to check the brain, spinal cord, and nerve function. The exam checks a persons mental status, coordination, and ability to walk normally, and how well the muscles, senses, and reflexes work. This may also be called a neuro exa
+----------------------------------------------------------------------
+[14] id=776551e95eeead5f lang=en tokens=1350
+QUESTION: What are the stages of Mycosis Fungoides and the Szary Syndrome ?
+RESPONSE: Key Points - After mycosis fungoides and the Szary syndrome have been diagnosed, tests are done to find out if cancer cells have spread from the skin to other parts of the body. - There are three ways that cancer spreads in the body. - Cancer may spread from where it began to other parts of the body. - The following stages are used for mycosis fungoides and the Szary syndrome: - Stage I Mycosis Fungoides - Stage II Mycosis Fungoides - Stage III Mycosis Fungoides - Stage IV Mycosis Fungoides - Stage IV Szary Syndrome After mycosis fungoides and the Szary syndrome have been diagnosed, tests are done to find out if cancer cells have spread from the skin to other parts of the body. The process u
+----------------------------------------------------------------------
+[15] id=bd34af946b8cc049 lang=en tokens=1246
+QUESTION: What are the symptoms of Robinow syndrome ?
+RESPONSE: What are the signs and symptoms of Robinow syndrome? The Human Phenotype Ontology provides the following list of signs and symptoms for Robinow syndrome. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Short stature 97% Anteverted nares 95% Short nose 95% Abnormality of dental morphology 90% Brachydactyly syndrome 90% Clinodactyly of the 5th finger 90% Dental malocclusion 90% Downturned corners of mouth 90% Hypertelorism 90% Hypoplasia of penis 90% Malar flat
+----------------------------------------------------------------------
+[16] id=b1636bdba7ea9f5f lang=en tokens=1223
+QUESTION: What are the symptoms of Alagille syndrome ?
+RESPONSE: What are the signs and symptoms of Alagille syndrome? Alagille syndrome is a complex multisystem disorder involving the liver, heart, eyes, face, and skeleton. Symptoms typically present in infancy or early childhood. The severity of the disorder varies among affected individuals, even within the same family. Symptoms range from so mild as to go unnoticed to severe enough to require heart and/or liver transplants. One of the major features of Alagille syndrome is liver damage caused by abnormalities in the bile ducts. These ducts carry bile (which helps to digest fats) from the liver to the gallbladder and small intestine. In Alagille syndrome, the bile ducts may be narrow, malformed, and re
+----------------------------------------------------------------------
+[17] id=7076fd3e65d124d4 lang=en tokens=1205
+QUESTION: What are the treatments for Overview of Kidney Disease in Children ?
+RESPONSE: Treatment for kidney disease in children depends on the cause of the illness. A child may be referred to a pediatric nephrologista doctor who specializes in treating kidney diseases and kidney failure in childrenfor treatment. Children with a kidney disease that is causing high blood pressure may need to take medications to lower their blood pressure. Improving blood pressure can significantly slow the progression of kidney disease. The health care provider may prescribe - angiotensin-converting enzyme (ACE) inhibitors, which help relax blood vessels and make it easier for the heart to pump blood - angiotensin receptor blockers (ARBs), which help relax blood vessels and make it easier for th
+----------------------------------------------------------------------
+[18] id=ec8580bf6699c318 lang=en tokens=1101
+QUESTION: How to diagnose Wilson Disease ?
+RESPONSE: A health care provider may use several tests and exams to diagnose Wilson disease, including the following: - medical and family history - physical exam - blood tests - urine tests - liver biopsy - imaging tests Health care providers typically see the same symptoms of Wilson disease in other conditions, and the symptoms of Wilson disease do not occur together often, making the disease difficult to diagnose. Medical and Family History A health care provider may take a medical and family history to help diagnose Wilson disease. Physical Exam A physical exam may help diagnose Wilson disease. During a physical exam, a health care provider usually - examines a patients body - uses a stethoscope t
+----------------------------------------------------------------------
+[19] id=ed8b370cb49503b2 lang=en tokens=1099
+QUESTION: How to diagnose Gallbladder Cancer ?
+RESPONSE: Tests that examine the gallbladder and nearby organs are used to detect (find), diagnose, and stage gallbladder cancer. Procedures that make pictures of the gallbladder and the area around it help diagnose gallbladder cancer and show how far the cancer has spread. The process used to find out if cancer cells have spread within and around the gallbladder is called staging. In order to plan treatment, it is important to know if the gallbladder cancer can be removed by surgery. Tests and procedures to detect, diagnose, and stage gallbladder cancer are usually done at the same time. The following tests and procedures may be used: - Physical exam and history : An exam of the body to check general
+----------------------------------------------------------------------
+[20] id=45eb6ef8129c5715 lang=en tokens=1092
+QUESTION: How to diagnose Breast Cancer ?
+RESPONSE: Most cancers in their early, most treatable stages do not cause any symptoms. That is why it's important to have regular tests to check for cancer long before you might notice anything wrong. Detecting Breast Cancer Through Screening When breast cancer is found early, it is more likely to be treated successfully. Checking for cancer in a person who does not have any symptoms is called screening. Screening tests for breast cancer include, among others, clinical breast exams and mammograms. Recent studies have shown that ultrasound and MRI's may also be useful complementary screening tools, particularly in women with mammograms that are not definitive. During a clinical breast exam, the doctor
+----------------------------------------------------------------------
+======================================================================
+9. EXEMPLES PAR SOURCE
+======================================================================
+
+
+SOURCE : FrenchMedMCQA
+----------------------------------------------------------------------
+ID       : 31a114649a0fa922
+LANGUAGE : fr
+QUESTION : Concernant les pathologies de l'hémostase, la ou lesquelle(s) de ces propositions est (sont) vraie(s) ?
+
+Options:
+A. La maladie de Willebrand est une maladie fréquente avec une prévalence de 0,5-1%.
+B. Les manifestations cliniques de l'hémophilie sont le plus souvent des hémorragies des muqueuses ou cutanées.
+C. Un taux de F VIII a 50% peut être retrouve dans une hémophilie A mineure.
+D. Le mode de transmission de l'hémophilie B est autosomique recessif.
+E. Il existe trois grands types de maladi
+RESPONSE : Réponses correctes :
+A. La maladie de Willebrand est une maladie fréquente avec une prévalence de 0,5-1%.
+E. Il existe trois grands types de maladie de Willebrand : type 1 : déficit quantitatif modéré / type 2 : déficit qualitatif / type 3 : déficit quantitatif sévère
+----------------------------------------------------------------------
+ID       : fe76ffe72a69b2d0
+LANGUAGE : fr
+QUESTION : Parmi les propositions suivantes concernant la chromatographie d'exclusion-diffusion, quelle est celle qui est exacte ?
+
+Options:
+A. Les petites molécules sont éluées en premier
+B. Les séparations ne sont menées qu'en solution aqueuse
+C. Le volume mort d'une colonne est souvent estimé grâce au Bleu Dextran
+D. La détection peut être effectuée par conductimétrie
+E. La détection peut faire appel à un catharomètre
+RESPONSE : Réponse correcte : C. Le volume mort d'une colonne est souvent estimé grâce au Bleu Dextran
+----------------------------------------------------------------------
+ID       : 3366a1cfebc67bd2
+LANGUAGE : fr
+QUESTION : Parmi les propositions suivantes concernant le système ABO, laquelle (lesquelles) est (sont) fausse(s)?
+
+Options:
+A. Les gènes qui gouvernent le système ABO codent pour la séquence en acides aminés des antigènes A et B.
+B. Le groupe AB est défini par l'absence d'anticorps naturels réguliers anti-A et anti-B.
+C. L'antigène de groupe A est présent dans les sécrétions de certains individus mais pas l'antigène du groupe B.
+D. Les anticorps irréguliers du système ABO apparaissent après des transfusio
+RESPONSE : Réponses correctes :
+A. Les gènes qui gouvernent le système ABO codent pour la séquence en acides aminés des antigènes A et B.
+B. Le groupe AB est défini par l'absence d'anticorps naturels réguliers anti-A et anti-B.
+C. L'antigène de groupe A est présent dans les sécrétions de certains individus mais pas l'antigène du groupe B.
+D. Les anticorps irréguliers du système ABO apparaissent après des transfusions incompatibles.
+E. Les anticorps irréguliers du système ABO apparaissent chez les femmes après des grossesses avec un foetus incompatible
+----------------------------------------------------------------------
+
+SOURCE : MedQuAD
+----------------------------------------------------------------------
+ID       : 1b4955cbc6a8de99
+LANGUAGE : en
+QUESTION : What is (are) Robinow syndrome ?
+RESPONSE : Robinow syndrome is a rare disorder that affects the bones as well as other parts of the body. Two forms of Robinow syndrome have been described: autosomal recessive Robinow syndrome, and the milder autosomal dominant Robinow syndrome. They are distinguished based on their modes of inheritance, symptoms, and severity. Autosomal recessive Robinow syndrome causes shortening of the long bones in the arms and legs; short fingers and toes; wedge-shaped spinal bones leading to kyphoscoliosis; fused or missing ribs; short stature; and distinctive facial features. Other features may include underdeveloped genitalia; dental problems; kidney or heart defects; or delayed development. This form is caused by mutations in the ROR2 gene. Autosomal dominant Robinow syndrome causes more mild, but similar, features. There are rarely spine and rib abnormalities, and short stature is less severe. A variant type of this form is additionally characterized by osteosclerosis. Autosomal dominant Robinow syndro
+----------------------------------------------------------------------
+ID       : e510e867774a2121
+LANGUAGE : en
+QUESTION : What is the outlook for Refsum Disease ?
+RESPONSE : ARD is treatable because phytanic acid is not produced by the body, but is only found in foods. With treatment, muscle weakness, numbness, and dry and scaly skin generally disappear. However, vision and hearing problems may persist and the sense of smell may not return. Untreated, ARD can lead to sudden death caused by heartbeat abnormalities.
+----------------------------------------------------------------------
+ID       : f6daf96271ddc972
+LANGUAGE : en
+QUESTION : What are the genetic changes related to monilethrix ?
+RESPONSE : Monilethrix is caused by mutations in one of several genes. Mutations in the KRT81 gene, the KRT83 gene, the KRT86 gene, or the DSG4 gene account for most cases of monilethrix. These genes provide instructions for making proteins that give structure and strength to strands of hair. Hair growth occurs in the hair follicle, a specialized structure in the skin. As the cells of the hair follicle mature to take on specialized functions (differentiate), they produce particular proteins and form the different compartments of the hair follicle and the hair shaft. As the cells in the hair follicle divide, the hair shaft is pushed upward and extends beyond the skin. The KRT81, KRT83, and KRT86 genes provide instructions for making proteins known as keratins. Keratins are a group of tough, fibrous proteins that form the structural framework of cells that make up the hair, skin, and nails. The KRT81 gene provides instructions for making the type II hair keratin K81 protein (K81); the KRT83 gene pr
+----------------------------------------------------------------------
+
+SOURCE : MediQAl
+----------------------------------------------------------------------
+ID       : 39b0e22446f3dfa0
+LANGUAGE : fr
+QUESTION : Quel est le signe clinique évocateur et caractéristique de l'hémophilie majeure chez un enfant de plus de 5 ans :
+
+Options:
+A. Gingivorragies.
+B. Purpura pétéchial et ecchymotique.
+C. Hémarthroses.
+D. Troubles visuels.
+E. Aucune de ces propositions.
+RESPONSE : Réponse correcte : C. Hémarthroses.
+----------------------------------------------------------------------
+ID       : de8f8d09e3a6dcbd
+LANGUAGE : fr
+QUESTION : Les signes de gravité identifiés chez ce patient sont : (Cocher la réponse juste)
+
+Options:
+A. La polypnée
+B. Les signes de lutte
+C. La cyanose
+D. Le refus de téter
+E. Toutes ces réponses sont justes
+RESPONSE : Réponse correcte : E. Toutes ces réponses sont justes
+----------------------------------------------------------------------
+ID       : 5eab3c2f36230dd8
+LANGUAGE : fr
+QUESTION : Le bilan biologique montre : Hb : 9,6 g/dl, Glycémie à jeun : 0,90 g/l, Cholestérol total : 2,92 g/l, HDL Cholestérol : 0,38 g/l, LDL Cholestérol : 2 g/l, Triglycérides : 1,88 g/l. Au cours de cette affection plusieurs types d'anémie peuvent être observés : (Cocher l'association juste) 1. Normocytaire normochrome 2. Microcytaire hypochrome de type ferriprive 3. Mégaloblastique type anémie de Biermer 4. Par diminution de la production d'érythropoïétine 5. Par déficit en folates secondaire à une m
+RESPONSE : Réponse correcte : D. 1+2+3+4+5
+----------------------------------------------------------------------
+======================================================================
+10. EXEMPLES DÉPASSANT 2048 TOKENS
+======================================================================
+
+ID=ab307a2110382e04 tokens=2760 language=en
+QUESTION: What are the treatments for Urinary Incontinence in Men ?
+RESPONSE: Treatment depends on the type of UI. Urgency Incontinence As a first line of therapy for urgency incontinence, a health care professional may recommend the following techniques to treat a mans problem: - behavioral and lifestyle changes - bladder training - pelvic floor exercises - urgency suppression If those treatments are not successful, the following additional measures may help urgency incontinence: - medications - electrical nerve stimulation - bulking agents - surgery A health care professional may recommend other treatments for men with urgency incontinence caused by BPH. More information is provided in the NIDDK health topic, Prostate Enlargement: Benign Prostatic Hyperplasia. Behavioral and lifestyle changes. Men with urgency incontinence may be able to reduce leaks by making behavioral and lifestyle changes: - Eating, diet, and nutrition. Men with urgency incontinence can change the amount and type of liquid they drink. A man can try limiting bladder irritantsincluding caffeinated drinks such as tea or coffee and carbonated beveragesto decrease leaks. Men also should limit alcoholic drinks, which can increase urine production. A health care professional can help a man determine how much he should drink based on his health, how active he is, and where he lives. To decrease nighttime trips to the restroom, men may want to stop drinking liquids several hours before bed. - Engaging in physical activity. Although a man may be reluctant to engage in physical activity whe
+----------------------------------------------------------------------
+ID=dfe34a1cc4260f0b tokens=2658 language=en
+QUESTION: What are the treatments for Parasites - Lice - Head Lice ?
+RESPONSE: General Guidelines Treatment for head lice is recommended for persons diagnosed with an active infestation. All household members and other close contacts should be checked; those persons with evidence of an active infestation should be treated. Some experts believe prophylactic treatment is prudent for persons who share the same bed with actively-infested individuals. All infested persons (household members and close contacts) and their bedmates should be treated at the same time. Some pediculicides (medicines that kill lice) have an ovicidal effect (kill eggs). For pediculicides that are only weakly ovicidal or not ovicidal, routine retreatment is recommended. For those that are more strongly ovicidal, retreatment is recommended only if live (crawling) lice are still present several days after treatment (see recommendation for each medication). To be most effective, retreatment should occur after all eggs have hatched but before new eggs are produced. When treating head lice, supplemental measures can be combined with recommended medicine (pharmacologic treatment); however, such additional (non-pharmacologic) measures generally are not required to eliminate a head lice infestation. For example, hats, scarves, pillow cases, bedding, clothing, and towels worn or used by the infested person in the 2-day period just before treatment is started can be machine washed and dried using the hot water and hot air cycles because lice and eggs are killed by exposure for 5 minutes to tem
+----------------------------------------------------------------------
+ID=0677f9f4caa4ae46 tokens=2196 language=en
+QUESTION: What are the treatments for Hypopharyngeal Cancer ?
+RESPONSE: Key Points - There are different types of treatment for patients with hypopharyngeal cancer. - Three types of standard treatment are used: - Surgery - Radiation therapy - Chemotherapy - New types of treatment are being tested in clinical trials. - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with hypopharyngeal cancer. Different types of treatment are available for patients with hypopharyngeal cancer. Some treatments are standard (the currently used treatment), and some are being tested in clinical trials. A treatment clinical trial is a research study meant to help improve current treatments or obtain information on new treatments for patients with cancer. When clinical trials show that a new treatment is better than the standard treatment, the new treatment may become the standard treatment. Patients may want to think about taking part in a clinical trial. Some clinical trials are open only to patients who have not started treatment. Three types of standard treatment are used: Surgery Surgery (removing the cancer in an operation) is a common treatment for all stages of hypopharyngeal cancer. The following surgical procedures may be used: - Laryngopharyngectomy: Surgery to remove the larynx (voice box) and part of the pharynx (throat). - Partial laryngopharyngectomy: Surgery to
+----------------------------------------------------------------------
+ID=cc132f85166250a0 tokens=4363 language=en
+QUESTION: What are the treatments for Non-Small Cell Lung Cancer ?
+RESPONSE: Key Points - There are different types of treatment for patients with non-small cell lung cancer. - Nine types of standard treatment are used: - Surgery - Radiation therapy - Chemotherapy - Targeted therapy - Laser therapy - Photodynamic therapy (PDT) - Cryosurgery - Electrocautery - Watchful waiting - New types of treatment are being tested in clinical trials. - Chemoprevention - Radiosensitizers - New combinations - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with non-small cell lung cancer. Different types of treatments are available for patients with non-small cell lung cancer. Some treatments are standard (the currently used treatment), and some are being tested in clinical trials. A treatment clinical trial is a research study meant to help improve current treatments or obtain information on new treatments for patients with cancer. When clinical trials show that a new treatment is better than the standard treatment, the new treatment may become the standard treatment. Patients may want to think about taking part in a clinical trial. Some clinical trials are open only to patients who have not started treatment. Nine types of standard treatment are used: Surgery Four types of surgery are used to treat lung cancer: - Wedge resection: Surgery to remove a tumor and some of the
+----------------------------------------------------------------------
+ID=d699f78fd61debee tokens=4382 language=en
+QUESTION: What are the treatments for Overweight and Obesity ?
+RESPONSE: Successful weight-loss treatments include setting goals and making lifestyle changes, such as eating fewer calories and being physically active. Medicines and weight-loss surgery also are options for some people if lifestyle changes aren't enough. Set Realistic Goals Setting realistic weight-loss goals is an important first step to losing weight. For Adults Try to lose 5 to 10 percent of your current weight over 6 months. This will lower your risk for coronary heart disease (CHD) and other conditions. The best way to lose weight is slowly. A weight loss of 1 to 2 pounds a week is do-able, safe, and will help you keep off the weight. It also will give you the time to make new, healthy lifestyle changes. If you've lost 10 percent of your body weight, have kept it off for 6 months, and are still overweight or obese, you may want to consider further weight loss. For Children and Teens If your child is overweight or at risk for overweight or obesity, the goal is to maintain his or her current weight and to focus on eating healthy and being physically active. This should be part of a family effort to make lifestyle changes. If your child is overweight or obese and has a health condition related to overweight or obesity, your doctor may refer you to a pediatric obesity treatment center. Lifestyle Changes Lifestyle changes can help you and your family achieve long-term weight-loss success. Example of lifestyle changes include: Focusing on balancing energy IN (calories from food and d
+----------------------------------------------------------------------
+ID=8c53294d2a2d0d32 tokens=2324 language=en
+QUESTION: What are the treatments for Adult Acute Lymphoblastic Leukemia ?
+RESPONSE: Key Points - There are different types of treatment for patients with adult ALL. - The treatment of adult ALL usually has two phases. - Four types of standard treatment are used: - Chemotherapy - Radiation therapy - Chemotherapy with stem cell transplant - Targeted therapy - New types of treatment are being tested in clinical trials. - Biologic therapy - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Patients with ALL may have late effects after treatment. - Follow-up tests may be needed. There are different types of treatment for patients with adult ALL. Different types of treatment are available for patients with adult acute lymphoblastic leukemia (ALL). Some treatments are standard (the currently used treatment), and some are being tested in clinical trials. A treatment clinical trial is a research study meant to help improve current treatments or obtain information on new treatments for patients with cancer. When clinical trials show that a new treatment is better than the standard treatment, the new treatment may become the standard treatment. Patients may want to think about taking part in a clinical trial. Some clinical trials are open only to patients who have not started treatment. The treatment of adult ALL usually has two phases. The treatment of adult ALL is done in phases: - Remission induction therapy: This is the first phase of treatment. The goal
+----------------------------------------------------------------------
+ID=0787d5c0fc603c1b tokens=3660 language=en
+QUESTION: What are the treatments for Pancreatic Neuroendocrine Tumors (Islet Cell Tumors) ?
+RESPONSE: Key Points - There are different types of treatment for patients with pancreatic NETs. - Six types of standard treatment are used: - Surgery - Chemotherapy - Hormone therapy - Hepatic arterial occlusion or chemoembolization - Targeted therapy - Supportive care - New types of treatment are being tested in clinical trials. - Patients may want to think about taking part in a clinical trial. - Patients can enter clinical trials before, during, or after starting their cancer treatment. - Follow-up tests may be needed. There are different types of treatment for patients with pancreatic NETs. Different types of treatments are available for patients with pancreatic neuroendocrine tumors (NETs). Some treatments are standard (the currently used treatment), and some are being tested in clinical trials. A treatment clinical trial is a research study meant to help improve current treatments or obtain information on new treatments for patients with cancer. When clinical trials show that a new treatment is better than the standard treatment, the new treatment may become the standard treatment. Patients may want to think about taking part in a clinical trial. Some clinical trials are open only to patients who have not started treatment. Six types of standard treatment are used: Surgery An operation may be done to remove the tumor. One of the following types of surgery may be used: - Enucleation: Surgery to remove the tumor only. This may be done when cancer occurs in one place in the pancrea
+----------------------------------------------------------------------
+======================================================================
+11. INDICATEURS À SURVEILLER
+======================================================================
+
+Réponses > 1000 tokens : 26 (0.65 %)
+Exemples > 2048 tokens : 7 (0.18 %)
+
+IMPORTANT : cet audit ne modifie pas le dataset.
+Il sert uniquement à diagnostiquer le pipeline SFT.

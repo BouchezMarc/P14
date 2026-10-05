@@ -1,0 +1,4672 @@
+================================================================================
+RAPPORT PII — DPO / REWARDBENCH
+================================================================================
+
+IMPORTANT : ce rapport ne modifie aucun dataset.
+Les détections regex sont des ALERTES et peuvent contenir des faux positifs.
+
+Champs techniques exclus du scan :
+  - id
+  - provenance.processing_version
+  - provenance.source_id
+
+=== SYNTHÈSE ===
+
+Total records analysés       : 6776
+Records avec alertes PII    : 111
+Total matchs détectés       : 576
+
+=== PAR DATASET ===
+
+[dpo_train]
+  Records                  : 5000
+  Records avec alertes     : 73
+  Matchs détectés          : 358
+
+  Types :
+    - date_month_year           133    matchs | 42 records
+    - us_zip_code               76     matchs | 22 records
+    - french_postal_code        73     matchs | 22 records
+    - date_numeric              49     matchs | 6 records
+    - url                       23     matchs | 4 records
+    - phone_international       4      matchs | 2 records
+
+[dpo_validation]
+  Records                  : 1000
+  Records avec alertes     : 24
+  Matchs détectés          : 110
+
+  Types :
+    - date_month_year           76     matchs | 15 records
+    - us_zip_code               13     matchs | 6 records
+    - french_postal_code        12     matchs | 6 records
+    - date_numeric              8      matchs | 2 records
+    - url                       1      matchs | 1 records
+
+[rewardbench]
+  Records                  : 776
+  Records avec alertes     : 14
+  Matchs détectés          : 108
+
+  Types :
+    - date_month_year           39     matchs | 8 records
+    - us_zip_code               34     matchs | 5 records
+    - french_postal_code        20     matchs | 4 records
+    - date_numeric              6      matchs | 1 records
+    - url                       5      matchs | 1 records
+    - email                     4      matchs | 1 records
+
+=== TYPES GLOBAUX ===
+
+date_month_year                248    matchs | 65 records
+us_zip_code                    123    matchs | 33 records
+french_postal_code             105    matchs | 32 records
+date_numeric                   63     matchs | 9 records
+url                            29     matchs | 6 records
+email                          4      matchs | 1 records
+phone_international            4      matchs | 2 records
+
+=== CHAMPS CONCERNÉS ===
+
+chosen[0].content                                            140
+prompt                                                       140
+rejected[0].content                                          140
+chosen[1].content                                            88
+rejected[1].content                                          68
+
+================================================================================
+ALERTES DÉTAILLÉES
+================================================================================
+
+
+### dpo_train — 358 matchs
+
+[1] ID       : dpo_train_3e62f681de3a92b5
+    Ligne      : 191
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 02/10/1965
+    Contexte   : he Two Oceans which is 56 km ..... am I allowed to do it?? My age .....45 ..... [PII] .......  Thanks YYYY@YYYY
+
+[2] ID       : dpo_train_3e62f681de3a92b5
+    Ligne      : 191
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 02/10/1965
+    Contexte   : he Two Oceans which is 56 km ..... am I allowed to do it?? My age .....45 ..... [PII] .......  Thanks YYYY@YYYY
+
+[3] ID       : dpo_train_3e62f681de3a92b5
+    Ligne      : 191
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 02/10/1965
+    Contexte   : he Two Oceans which is 56 km ..... am I allowed to do it?? My age .....45 ..... [PII] .......  Thanks YYYY@YYYY
+
+[4] ID       : dpo_train_63d29a74c45c67c5
+    Ligne      : 193
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2023
+    Contexte   : As of my knowledge cutoff date in [PII], Chagas disease, also known as American trypanosomiasis, remains a significant 
+
+[5] ID       : dpo_train_b6a4dc4f7318e7d9
+    Ligne      : 202
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : June 2011
+    Contexte   : My kid was very active and healthy till she started going to school in [PII] ( Nursery and her age was 2 1/2) After she started going to school she don t ea
+
+[6] ID       : dpo_train_b6a4dc4f7318e7d9
+    Ligne      : 202
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : June 2011
+    Contexte   : My kid was very active and healthy till she started going to school in [PII] ( Nursery and her age was 2 1/2) After she started going to school she don t ea
+
+[7] ID       : dpo_train_b6a4dc4f7318e7d9
+    Ligne      : 202
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : June 2011
+    Contexte   : My kid was very active and healthy till she started going to school in [PII] ( Nursery and her age was 2 1/2) After she started going to school she don t ea
+
+[8] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[9] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[10] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[11] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[12] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[13] ID       : dpo_train_d26285baca9e9f06
+    Ligne      : 237
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   :  and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC - [PII] Cu mm, Platelets 4,30,000, ESR -49 mm. Urine examination showed proteinuria and
+
+[14] ID       : dpo_train_811f38e2324ff937
+    Ligne      : 246
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : October 2009
+    Contexte   : hat you've shared, it seems like your mom has been on Nexavar (sorafenib) since [PII], and despite the initial response, the tumor has grown from 10-12 cm to 14 cm. 
+
+[15] ID       : dpo_train_337fff486e2b4e8f
+    Ligne      : 257
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Dec 2011
+    Contexte   : I have had an acdf surgery in [PII]. After I had my surgery, my pain was worse. I still have pain in in my neck and
+
+[16] ID       : dpo_train_337fff486e2b4e8f
+    Ligne      : 257
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Dec 2011
+    Contexte   : I have had an acdf surgery in [PII]. After I had my surgery, my pain was worse. I still have pain in in my neck and
+
+[17] ID       : dpo_train_337fff486e2b4e8f
+    Ligne      : 257
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Dec 2011
+    Contexte   : I have had an acdf surgery in [PII]. After I had my surgery, my pain was worse. I still have pain in in my neck and
+
+[18] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[19] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[20] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[21] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[22] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[23] ID       : dpo_train_3d6bfacf742cd7f7
+    Ligne      : 297
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : le and there was asymmetrical neuropathy. Investigations showed a Hb 12 gm, TLC-[PII] Cu mm, Platelets 4,30,000, ESR-49 mm. Urine examination showed proteinuria and 
+
+[24] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://www.allergenonline.org/)
+    Contexte   : ow are some of the key databases used in allergen research:
+
+1. AllergenOnline ([PII]
+   - Developed by the Food Allergy Research and Resource Program (FARRP) at the
+
+[25] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://www.allergen.org/)
+    Contexte   : ty and potential cross-reactivity.
+
+2. WHO/IUIS Allergen Nomenclature Database ([PII]
+   - Maintained by the World Health Organization (WHO) and the International Un
+
+[26] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://www.iedb.org/)
+    Contexte   : ms, protein families, and cross-reactivity.
+
+3. Immune Epitope Database (IEDB) ([PII]
+   - Contains a comprehensive collection of epitope data related to antibody an
+
+[27] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://www.allergome.org/)
+    Contexte   : tion on epitopes that may be shared between different allergens.
+
+4. Allergome ([PII]
+   - A platform dedicated to collecting and sharing information on allergenic m
+
+[28] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://comparedatabase.org/)
+    Contexte   : standing of allergen exposure and sensitization patterns.
+
+5. COMPARE Database ([PII]
+   - A collection of known allergens used for comparative purposes.
+   - Allows
+
+[29] ID       : dpo_train_343bb5630317bc91
+    Ligne      : 305
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : http://www.rcsb.org/)
+    Contexte   : t of potential cross-reactivity and allergenicity.
+
+6. Protein Data Bank (PDB) ([PII]
+   - Although not exclusively an allergen database, PDB is a repository of 3D s
+
+[30] ID       : dpo_train_8ccb001de7b82b68
+    Ligne      : 496
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : july 2013
+    Contexte   : Hi, My name is DHIRAJ SHETTY.I was diagnosed with adenocarcinoma of pancreas in [PII].Since then I have undergone 9 sessions of chemotherapy.First 3 being gemcite + 
+
+[31] ID       : dpo_train_8ccb001de7b82b68
+    Ligne      : 496
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : july 2013
+    Contexte   : Hi, My name is DHIRAJ SHETTY.I was diagnosed with adenocarcinoma of pancreas in [PII].Since then I have undergone 9 sessions of chemotherapy.First 3 being gemcite + 
+
+[32] ID       : dpo_train_8ccb001de7b82b68
+    Ligne      : 496
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : july 2013
+    Contexte   : Hi, My name is DHIRAJ SHETTY.I was diagnosed with adenocarcinoma of pancreas in [PII].Since then I have undergone 9 sessions of chemotherapy.First 3 being gemcite + 
+
+[33] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 10827
+    Contexte   :  histone acetyltransferase EP300. The Journal of biological chemistry, 287(13), [PII]-10835.
+- Zhang, Y., Liu, Y., Li, J., & Li, Y. (2012). microRNA-181a regulates o
+
+[34] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 10835
+    Contexte   : ne acetyltransferase EP300. The Journal of biological chemistry, 287(13), 10827-[PII].
+- Zhang, Y., Liu, Y., Li, J., & Li, Y. (2012). microRNA-181a regulates osteoge
+
+[35] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 29858
+    Contexte   : argeting DNA methyltransferase 1. The Journal of biological chemistry, 287(35), [PII]-29866.
+- Wang, X., Zhou, Y., Zhang, H., Zhou, Q., & Xu, H. (2015). XIST RNA is 
+
+[36] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 29866
+    Contexte   : ng DNA methyltransferase 1. The Journal of biological chemistry, 287(35), 29858-[PII].
+- Wang, X., Zhou, Y., Zhang, H., Zhou, Q., & Xu, H. (2015). XIST RNA is a crit
+
+[37] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 10827
+    Contexte   :  histone acetyltransferase EP300. The Journal of biological chemistry, 287(13), [PII]-10835.
+- Zhang, Y., Liu, Y., Li, J., & Li, Y. (2012). microRNA-181a regulates o
+
+[38] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 10835
+    Contexte   : ne acetyltransferase EP300. The Journal of biological chemistry, 287(13), 10827-[PII].
+- Zhang, Y., Liu, Y., Li, J., & Li, Y. (2012). microRNA-181a regulates osteoge
+
+[39] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 29858
+    Contexte   : argeting DNA methyltransferase 1. The Journal of biological chemistry, 287(35), [PII]-29866.
+- Wang, X., Zhou, Y., Zhang, H., Zhou, Q., & Xu, H. (2015). XIST RNA is 
+
+[40] ID       : dpo_train_5d070c036f203091
+    Ligne      : 614
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 29866
+    Contexte   : ng DNA methyltransferase 1. The Journal of biological chemistry, 287(35), 29858-[PII].
+- Wang, X., Zhou, Y., Zhang, H., Zhou, Q., & Xu, H. (2015). XIST RNA is a crit
+
+[41] ID       : dpo_train_71828f1f57e76722
+    Ligne      : 703
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2023
+    Contexte   : are most prevalent is a significant concern.
+
+As of my knowledge cutoff date in [PII], recombinant DNA technology continues to be a critical tool in the fight agains
+
+[42] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2012
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: [PII], March 2013 (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feedin
+
+[43] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2013
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: September 2012, [PII] (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feeding on demand
+
+
+[44] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2012
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: [PII], March 2013 (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feedin
+
+[45] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2013
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: September 2012, [PII] (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feeding on demand
+
+
+[46] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2012
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: [PII], March 2013 (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feedin
+
+[47] ID       : dpo_train_fd2c36c224632f46
+    Ligne      : 710
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2013
+    Contexte   : Regarding Baby-friendly UNICEF plan, all are true EXCEPT: September 2012, [PII] (b)
+
+A. Mother and child are left together 24 hours a day
+B. Feeding on demand
+
+
+[48] ID       : dpo_train_b20804f495df692f
+    Ligne      : 727
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2023
+    Contexte   : e specific symptoms and needs of the patient. As of my knowledge cutoff date in [PII], there may have been new developments or advancements in the treatment of DRPLA
+
+[49] ID       : dpo_train_6045ade29cba52b7
+    Ligne      : 742
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2010
+    Contexte   : HLA testing aids in the diagnosis of which ocular affection: [PII]
+
+A. Conjunctivitis
+B. Uveitis
+C. Retinitis
+D. Viteous hemorrhage
+
+[50] ID       : dpo_train_6045ade29cba52b7
+    Ligne      : 742
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2010
+    Contexte   : HLA testing aids in the diagnosis of which ocular affection: [PII]
+
+A. Conjunctivitis
+B. Uveitis
+C. Retinitis
+D. Viteous hemorrhage
+
+[51] ID       : dpo_train_6045ade29cba52b7
+    Ligne      : 742
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2010
+    Contexte   : HLA testing aids in the diagnosis of which ocular affection: [PII]
+
+A. Conjunctivitis
+B. Uveitis
+C. Retinitis
+D. Viteous hemorrhage
+
+[52] ID       : dpo_train_1cea7451a172738f
+    Ligne      : 759
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 18071
+    Contexte   :  versus placebo after complete resection of high-risk stage III melanoma (EORTC [PII]): a randomised, double-blind, phase 3 trial. Lancet Oncology, 17(12), 1475-1485
+
+[53] ID       : dpo_train_1cea7451a172738f
+    Ligne      : 759
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 18071
+    Contexte   :  versus placebo after complete resection of high-risk stage III melanoma (EORTC [PII]): a randomised, double-blind, phase 3 trial. Lancet Oncology, 17(12), 1475-1485
+
+[54] ID       : dpo_train_8e7b3ee30b9735e1
+    Ligne      : 764
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : November 2010
+    Contexte   : I have a bad neck. I had an accident and a broken neck in 1973. In [PII] I did a carotid duplex doppler on my neck and the results revealed Abnormal Dop
+
+[55] ID       : dpo_train_8e7b3ee30b9735e1
+    Ligne      : 764
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : November 2010
+    Contexte   : I have a bad neck. I had an accident and a broken neck in 1973. In [PII] I did a carotid duplex doppler on my neck and the results revealed Abnormal Dop
+
+[56] ID       : dpo_train_8e7b3ee30b9735e1
+    Ligne      : 764
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : November 2010
+    Contexte   : I have a bad neck. I had an accident and a broken neck in 1973. In [PII] I did a carotid duplex doppler on my neck and the results revealed Abnormal Dop
+
+[57] ID       : dpo_train_2068523b8c43711d
+    Ligne      : 820
+    Type       : phone_international
+    Champ      : prompt
+    Match      : +91 98 181 0000
+    Contexte   : l these ailments. Thank you, T. Chandra Sekhar, Age 47 Email: YYYY@YYYY Mobile: [PII]
+
+[58] ID       : dpo_train_2068523b8c43711d
+    Ligne      : 820
+    Type       : phone_international
+    Champ      : chosen[0].content
+    Match      : +91 98 181 0000
+    Contexte   : l these ailments. Thank you, T. Chandra Sekhar, Age 47 Email: YYYY@YYYY Mobile: [PII]
+
+[59] ID       : dpo_train_2068523b8c43711d
+    Ligne      : 820
+    Type       : phone_international
+    Champ      : rejected[0].content
+    Match      : +91 98 181 0000
+    Contexte   : l these ailments. Thank you, T. Chandra Sekhar, Age 47 Email: YYYY@YYYY Mobile: [PII]
+
+[60] ID       : dpo_train_22dc672839a24043
+    Ligne      : 836
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Aug 2012
+    Contexte   : dity. The problems have resurfaced after I underwent an appendicitis surgery in [PII]. I took allopatChatDoctoredicines in 2008 and by taking heavy doses of anti-spa
+
+[61] ID       : dpo_train_22dc672839a24043
+    Ligne      : 836
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Aug 2012
+    Contexte   : dity. The problems have resurfaced after I underwent an appendicitis surgery in [PII]. I took allopatChatDoctoredicines in 2008 and by taking heavy doses of anti-spa
+
+[62] ID       : dpo_train_22dc672839a24043
+    Ligne      : 836
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Aug 2012
+    Contexte   : dity. The problems have resurfaced after I underwent an appendicitis surgery in [PII]. I took allopatChatDoctoredicines in 2008 and by taking heavy doses of anti-spa
+
+[63] ID       : dpo_train_41bcd37e992a1c32
+    Ligne      : 900
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : March 2023
+    Contexte   : f the more common autosomal recessive forms.
+
+As of my knowledge cutoff date in [PII], there is no definitive figure for the global number of individuals affected by
+
+[64] ID       : dpo_train_cb4697c0cf9e583b
+    Ligne      : 922
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Sept 2012
+    Contexte   : On 6th [PII] around 6.30pm I was at a restaurant and the whole room was spinning before the 
+
+[65] ID       : dpo_train_cb4697c0cf9e583b
+    Ligne      : 922
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Sept 2012
+    Contexte   : On 6th [PII] around 6.30pm I was at a restaurant and the whole room was spinning before the 
+
+[66] ID       : dpo_train_cb4697c0cf9e583b
+    Ligne      : 922
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Sept 2012
+    Contexte   : On 6th [PII] around 6.30pm I was at a restaurant and the whole room was spinning before the 
+
+[67] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[68] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[69] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[70] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[71] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[72] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[73] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[74] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[75] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 12218
+    Contexte   : So, the answer is B.
+
+The study found that the SNP rs[PII] of the SAA1 gene was associated with SUA levels by analyzing a dominant model a
+
+[76] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 12218
+    Contexte   : So, the answer is B.
+
+The study found that the SNP rs[PII] of the SAA1 gene was associated with SUA levels by analyzing a dominant model a
+
+[77] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[78] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[79] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12218
+    Contexte   : diovascular Risk Survey (CRS) study. The single nucleotide polymorphism (SNP) rs[PII] of the SAA1 gene was genotyped by using the polymerase chain reaction-restricti
+
+[80] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12218
+    Contexte   : with genotypes was assessed by using the general liner mode.
+Context: The SNP rs[PII] was associated with SUA levels by analyses of a dominate model (P = 0.002) and 
+
+[81] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 12218
+    Contexte   : n the SAA1 gene in Chinese subjects. 
+
+From the text, we can see that the SNP rs[PII] of the SAA1 gene was associated with SUA levels by analyses of a dominant model
+
+[82] ID       : dpo_train_8b7c394b4a618a56
+    Ligne      : 925
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 12218
+    Contexte   : n the SAA1 gene in Chinese subjects. 
+
+From the text, we can see that the SNP rs[PII] of the SAA1 gene was associated with SUA levels by analyses of a dominant model
+
+[83] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[84] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[85] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[86] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[87] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[88] ID       : dpo_train_3de8b3d035841ad6
+    Ligne      : 946
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 15800
+    Contexte   : enomegaly with raised BP. Blood workup shows: HB- 20.1 g/dl Hematocrit-60-% WBC-[PII] Platelet count- 500000E PO- low spO2 - 98% LAP- increased. Which of the followi
+
+[89] ID       : dpo_train_733df79cf9fd8a1a
+    Ligne      : 965
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : aug 2011
+    Contexte   :  ray and not has come . In 2010 oct i delivered a healthy baby. in the month of [PII] my waight was 59 now my waight is 53.
+
+[90] ID       : dpo_train_733df79cf9fd8a1a
+    Ligne      : 965
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : aug 2011
+    Contexte   :  ray and not has come . In 2010 oct i delivered a healthy baby. in the month of [PII] my waight was 59 now my waight is 53.
+
+[91] ID       : dpo_train_733df79cf9fd8a1a
+    Ligne      : 965
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : aug 2011
+    Contexte   :  ray and not has come . In 2010 oct i delivered a healthy baby. in the month of [PII] my waight was 59 now my waight is 53.
+
+[92] ID       : dpo_train_cf133d0798903043
+    Ligne      : 1027
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : March 2023
+    Contexte   : As of my knowledge cutoff date in [PII], I do not have access to the most recent peer-reviewed publications, and thus c
+
+[93] ID       : dpo_train_fae5a2eeb4e43e26
+    Ligne      : 1095
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2023
+    Contexte   : nd efficacy of these interventions in humans. As of my knowledge cutoff date in [PII], these research areas remain highly active, and the translation of these findin
+
+[94] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[95] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[96] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[97] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[98] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[99] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[100] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[101] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[102] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 23390
+    Contexte   : lone has an anxiolytic effect.
+
+However, when MK801 was co-administered with SCH[PII], a dopamine D1 receptor antagonist, at subthreshold doses, it still induced anx
+
+[103] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 23390
+    Contexte   : lone has an anxiolytic effect.
+
+However, when MK801 was co-administered with SCH[PII], a dopamine D1 receptor antagonist, at subthreshold doses, it still induced anx
+
+[104] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[105] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[106] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 23390
+    Contexte   :  indicating an anxiolytic-like effect. Moreover, sole intra-CA1 injection of SCH[PII], dopamine D1 receptor antagonist, (0.25, 0.5 and 1 μg/rat) and sulpiride, dopam
+
+[107] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 23390
+    Contexte   : not alter anxiety-like behaviors. Co-administration of subthreshold doses of SCH[PII] (0.5 μg/rat) and MK801 (0.5 g/rat), induced anxiolytic-like behaviors. Furtherm
+
+[108] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 23390
+    Contexte   : esponses.
+
+The results show that co-administration of a subthreshold dose of SCH[PII] (a dopamine D1 receptor antagonist) and MK-801 induces anxiolytic-like behavior
+
+[109] ID       : dpo_train_f17b8bdc15380ddb
+    Ligne      : 1353
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 23390
+    Contexte   : esponses.
+
+The results show that co-administration of a subthreshold dose of SCH[PII] (a dopamine D1 receptor antagonist) and MK-801 induces anxiolytic-like behavior
+
+[110] ID       : dpo_train_1c2d7f802598ecf4
+    Ligne      : 1372
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : October 2014
+    Contexte   : ch bleeding 3 times in last three weeks. The first time this happened to me was [PII] and endoscopy was done but could not find where the bleeding started. I have st
+
+[111] ID       : dpo_train_1c2d7f802598ecf4
+    Ligne      : 1372
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : October 2014
+    Contexte   : ch bleeding 3 times in last three weeks. The first time this happened to me was [PII] and endoscopy was done but could not find where the bleeding started. I have st
+
+[112] ID       : dpo_train_1c2d7f802598ecf4
+    Ligne      : 1372
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : October 2014
+    Contexte   : ch bleeding 3 times in last three weeks. The first time this happened to me was [PII] and endoscopy was done but could not find where the bleeding started. I have st
+
+[113] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : November 2002
+    Contexte   :  unselected group of patients who underwent an infrapopliteal intervention from [PII] to February 2008. The primary end points evaluated were technical success, limb
+
+[114] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : February 2008
+    Contexte   :  of patients who underwent an infrapopliteal intervention from November 2002 to [PII]. The primary end points evaluated were technical success, limb salvage, primary
+
+[115] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : November 2002
+    Contexte   :  unselected group of patients who underwent an infrapopliteal intervention from [PII] to February 2008. The primary end points evaluated were technical success, limb
+
+[116] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : February 2008
+    Contexte   :  of patients who underwent an infrapopliteal intervention from November 2002 to [PII]. The primary end points evaluated were technical success, limb salvage, primary
+
+[117] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : November 2002
+    Contexte   :  unselected group of patients who underwent an infrapopliteal intervention from [PII] to February 2008. The primary end points evaluated were technical success, limb
+
+[118] ID       : dpo_train_85dac8fc36976e5a
+    Ligne      : 1499
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : February 2008
+    Contexte   :  of patients who underwent an infrapopliteal intervention from November 2002 to [PII]. The primary end points evaluated were technical success, limb salvage, primary
+
+[119] ID       : dpo_train_837e3d5182cd651b
+    Ligne      : 1540
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : july 2011
+    Contexte   : hi, i was operated for peri anal abscess in left hip in [PII]. as of now the wound has not healed up rather it has converted into peri anal s
+
+[120] ID       : dpo_train_837e3d5182cd651b
+    Ligne      : 1540
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : july 2011
+    Contexte   : hi, i was operated for peri anal abscess in left hip in [PII]. as of now the wound has not healed up rather it has converted into peri anal s
+
+[121] ID       : dpo_train_837e3d5182cd651b
+    Ligne      : 1540
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : july 2011
+    Contexte   : hi, i was operated for peri anal abscess in left hip in [PII]. as of now the wound has not healed up rather it has converted into peri anal s
+
+[122] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 12255
+    Contexte   : sponses to pathogens. Proceedings of the National Academy of Sciences, 100(22), [PII]-12260.
+* Eberle, M., & Nowak, M. A. (2011). Epistatic selection in the evolutio
+
+[123] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 12260
+    Contexte   : s to pathogens. Proceedings of the National Academy of Sciences, 100(22), 12255-[PII].
+* Eberle, M., & Nowak, M. A. (2011). Epistatic selection in the evolution of t
+
+[124] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 12255
+    Contexte   : sponses to pathogens. Proceedings of the National Academy of Sciences, 100(22), [PII]-12260.
+
+[125] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 12260
+    Contexte   : s to pathogens. Proceedings of the National Academy of Sciences, 100(22), 12255-[PII].
+
+[126] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 12255
+    Contexte   : sponses to pathogens. Proceedings of the National Academy of Sciences, 100(22), [PII]-12260.
+* Eberle, M., & Nowak, M. A. (2011). Epistatic selection in the evolutio
+
+[127] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 12260
+    Contexte   : s to pathogens. Proceedings of the National Academy of Sciences, 100(22), 12255-[PII].
+* Eberle, M., & Nowak, M. A. (2011). Epistatic selection in the evolution of t
+
+[128] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 12255
+    Contexte   : sponses to pathogens. Proceedings of the National Academy of Sciences, 100(22), [PII]-12260.
+
+[129] ID       : dpo_train_e3874c581c7c704c
+    Ligne      : 1662
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 12260
+    Contexte   : s to pathogens. Proceedings of the National Academy of Sciences, 100(22), 12255-[PII].
+
+[130] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[131] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[132] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[133] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[134] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[135] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 25000
+    Contexte   : puncture sites and hepatomegly. Investigation showed PCV =65% WBC 4000 platelet [PII] & mildly prolonged PT. CXR revealing left sided pleural effusion. Diagnosis is 
+
+[136] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 25000
+    Contexte   : sion or consumption of WBCs in the peripheral circulation.
+	+ Platelet count of [PII] is significantly low, indicating thrombocytopenia.
+	+ Mildly prolonged PT (Prot
+
+[137] ID       : dpo_train_8819ec9f8a0cc3a2
+    Ligne      : 1735
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 25000
+    Contexte   : sion or consumption of WBCs in the peripheral circulation.
+	+ Platelet count of [PII] is significantly low, indicating thrombocytopenia.
+	+ Mildly prolonged PT (Prot
+
+[138] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : phone_international
+    Champ      : chosen[1].content
+    Match      : 0000000000009441
+    Contexte   : onus-Myoclonus Syndrome**. Neurology. 2020;94(15):e1641-e1649. doi: 10.1212/WNL.[PII]
+
+[2] **Immunotherapy in Opsoclonus-Myoclonus Syndrome**. Journal of Neuroimmuno
+
+[139] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00415
+    Contexte   : oclonus Syndrome**. Journal of Neurology. 2019;266(10):2331-2338. doi: 10.1007/s[PII]-019-09444-6
+
+[140] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 09444
+    Contexte   : ndrome**. Journal of Neurology. 2019;266(10):2331-2338. doi: 10.1007/s00415-019-[PII]-6
+
+[141] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 09444
+    Contexte   : ndrome**. Journal of Neurology. 2019;266(10):2331-2338. doi: 10.1007/s00415-019-[PII]-6
+
+[142] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.clinicaltrials.gov/)
+    Contexte   : lated to Opsoclonus-Myoclonus on the following websites:
+
+* ClinicalTrials.gov ([PII]
+* National Institute of Neurological Disorders and Stroke (NINDS) (https://www.
+
+[143] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.ninds.nih.gov/Disorders/Patient-Education/Fact-Sheets/Opsoclonus-Myoclonus-Syndrome)
+    Contexte   : trials.gov/)
+* National Institute of Neurological Disorders and Stroke (NINDS) ([PII]
+* European Union's Clinical Trials Register (https://www.clinicaltrialsregister
+
+[144] ID       : dpo_train_8e169bebe896b79b
+    Ligne      : 1739
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.clinicaltrialsregister.eu/)
+    Contexte   : ets/Opsoclonus-Myoclonus-Syndrome)
+* European Union's Clinical Trials Register ([PII]
+
+[145] ID       : dpo_train_cab3dec27802c414
+    Ligne      : 1837
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : june 2011
+    Contexte   : now im bleeding AGAIN. im 24 and this has never been a problem until it started [PII]. me and my bf want to get pregnant also.. WILL THIS EVER STOP? Please HELP!
+
+[146] ID       : dpo_train_cab3dec27802c414
+    Ligne      : 1837
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : june 2011
+    Contexte   : now im bleeding AGAIN. im 24 and this has never been a problem until it started [PII]. me and my bf want to get pregnant also.. WILL THIS EVER STOP? Please HELP!
+
+[147] ID       : dpo_train_cab3dec27802c414
+    Ligne      : 1837
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : june 2011
+    Contexte   : now im bleeding AGAIN. im 24 and this has never been a problem until it started [PII]. me and my bf want to get pregnant also.. WILL THIS EVER STOP? Please HELP!
+
+[148] ID       : dpo_train_7f2d87d8ec3dd1e9
+    Ligne      : 1855
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2012
+    Contexte   : Afferent pupillary defect is seen in: [PII]
+
+A. Orbital cellulitis
+B. DM
+C. Papilloedema
+D. Retrobulbar neuritis
+
+[149] ID       : dpo_train_7f2d87d8ec3dd1e9
+    Ligne      : 1855
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2012
+    Contexte   : Afferent pupillary defect is seen in: [PII]
+
+A. Orbital cellulitis
+B. DM
+C. Papilloedema
+D. Retrobulbar neuritis
+
+[150] ID       : dpo_train_7f2d87d8ec3dd1e9
+    Ligne      : 1855
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2012
+    Contexte   : Afferent pupillary defect is seen in: [PII]
+
+A. Orbital cellulitis
+B. DM
+C. Papilloedema
+D. Retrobulbar neuritis
+
+[151] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 4/8/2012
+    Contexte   : port is adenacarcinoma,glison 3+4,12cores of biopsy 80%positive.biopsy done on  [PII].I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  22/7/
+
+[152] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 30/1/2013
+    Contexte   : res of biopsy 80%positive.biopsy done on  4/8/2012.I take two Zoladex inj.one on[PII] and second on 5/5/2013.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3
+
+[153] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 5/5/2013
+    Contexte   : e.biopsy done on  4/8/2012.I take two Zoladex inj.one on30/1/2013 and second on [PII].my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on 5
+
+[154] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 22/7/2012
+    Contexte   : /2012.I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  [PII] was 16..22.after  first inj PSA. 3..76as test.  done on 5/4/2013.I  take one Ta
+
+[155] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 5/4/2013
+    Contexte   : 3.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on [PII].I  take one Tab.along a for b.p. and glimisave1mg.two times. In a day for diiab
+
+[156] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 4/8/2012
+    Contexte   : port is adenacarcinoma,glison 3+4,12cores of biopsy 80%positive.biopsy done on  [PII].I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  22/7/
+
+[157] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 30/1/2013
+    Contexte   : res of biopsy 80%positive.biopsy done on  4/8/2012.I take two Zoladex inj.one on[PII] and second on 5/5/2013.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3
+
+[158] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 5/5/2013
+    Contexte   : e.biopsy done on  4/8/2012.I take two Zoladex inj.one on30/1/2013 and second on [PII].my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on 5
+
+[159] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 22/7/2012
+    Contexte   : /2012.I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  [PII] was 16..22.after  first inj PSA. 3..76as test.  done on 5/4/2013.I  take one Ta
+
+[160] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 5/4/2013
+    Contexte   : 3.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on [PII].I  take one Tab.along a for b.p. and glimisave1mg.two times. In a day for diiab
+
+[161] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 4/8/2012
+    Contexte   : es and blood pressure.
+
+To summarize your report:
+
+* 12-core prostate biopsy on [PII] showed adenocarcinoma with a Gleason score of 3+4, and 80% of the biopsy cores 
+
+[162] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 22/7/2012
+    Contexte   : Gleason score of 3+4, and 80% of the biopsy cores were positive.
+* PSA level on [PII] was 16.22.
+* After the first Zoladex injection on 30/1/2013, PSA level decrease
+
+[163] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 30/1/2013
+    Contexte   : ive.
+* PSA level on 22/7/2012 was 16.22.
+* After the first Zoladex injection on [PII], PSA level decreased to 3.76 as of 5/4/2013.
+* Bone scan was negative.
+
+To moni
+
+[164] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 5/4/2013
+    Contexte   : ter the first Zoladex injection on 30/1/2013, PSA level decreased to 3.76 as of [PII].
+* Bone scan was negative.
+
+To monitor the effectiveness of your treatment and 
+
+[165] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 4/8/2012
+    Contexte   : port is adenacarcinoma,glison 3+4,12cores of biopsy 80%positive.biopsy done on  [PII].I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  22/7/
+
+[166] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 30/1/2013
+    Contexte   : res of biopsy 80%positive.biopsy done on  4/8/2012.I take two Zoladex inj.one on[PII] and second on 5/5/2013.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3
+
+[167] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 5/5/2013
+    Contexte   : e.biopsy done on  4/8/2012.I take two Zoladex inj.one on30/1/2013 and second on [PII].my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on 5
+
+[168] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 22/7/2012
+    Contexte   : /2012.I take two Zoladex inj.one on30/1/2013 and second on 5/5/2013.my  PSA on  [PII] was 16..22.after  first inj PSA. 3..76as test.  done on 5/4/2013.I  take one Ta
+
+[169] ID       : dpo_train_ca9443619d1ba707
+    Ligne      : 1877
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 5/4/2013
+    Contexte   : 3.my  PSA on  22/7/2012 was 16..22.after  first inj PSA. 3..76as test.  done on [PII].I  take one Tab.along a for b.p. and glimisave1mg.two times. In a day for diiab
+
+[170] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[171] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[172] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[173] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[174] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[175] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[176] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[177] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[178] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[179] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[180] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[181] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[182] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 15427
+    Contexte   : etic rats.
+
+From the context, we can see that both PARP inhibitors (ISO and GPI-[PII]) delayed, but did not prevent, the formation of diabetic cataract. However, the
+
+[183] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 15427
+    Contexte   : etic rats.
+
+From the context, we can see that both PARP inhibitors (ISO and GPI-[PII]) delayed, but did not prevent, the formation of diabetic cataract. However, the
+
+[184] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[185] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[186] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[187] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : -(4-methyl-piperazin-1-ylmethyl)-2H-7-oxa-1,2-diaza-benzo[de]anthracen-3-1 (GPI-[PII], 30 mg kg(-1) d(-1) orally) for 10 weeks after the first 2 weeks without treatm
+
+[188] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : ely 4-fold in STZ diabetic rats, and this increase was prevented by ISO and GPI-[PII]. Both PARP inhibitors reduced diabetes-induced retinal oxidative-nitrosative an
+
+[189] ID       : dpo_train_fae354a75225c216
+    Ligne      : 2054
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 15427
+    Contexte   : xidative-nitrosative and endoplasmic reticulum stress and glial activation. GPI-[PII] (20 microM) prevented oxidative-nitrosative stress and cell death in palmitate-
+
+[190] ID       : dpo_train_34127564f02be242
+    Ligne      : 2069
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 10262
+    Contexte   : phorylation in yeast. Proceedings of the National Academy of Sciences, 103(27), [PII]-10267.
+* Ficarro, S. B., et al. (2002). Phosphoproteome analysis of HeLa cells.
+
+[191] ID       : dpo_train_34127564f02be242
+    Ligne      : 2069
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 10267
+    Contexte   : ation in yeast. Proceedings of the National Academy of Sciences, 103(27), 10262-[PII].
+* Ficarro, S. B., et al. (2002). Phosphoproteome analysis of HeLa cells. Journ
+
+[192] ID       : dpo_train_34127564f02be242
+    Ligne      : 2069
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 10262
+    Contexte   : phorylation in yeast. Proceedings of the National Academy of Sciences, 103(27), [PII]-10267.
+* Ficarro, S. B., et al. (2002). Phosphoproteome analysis of HeLa cells.
+
+[193] ID       : dpo_train_34127564f02be242
+    Ligne      : 2069
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 10267
+    Contexte   : ation in yeast. Proceedings of the National Academy of Sciences, 103(27), 10262-[PII].
+* Ficarro, S. B., et al. (2002). Phosphoproteome analysis of HeLa cells. Journ
+
+[194] ID       : dpo_train_a0c2104c168c61ff
+    Ligne      : 2101
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2007
+    Contexte   : All of the following are features of Datura poisoning except: [PII]
+
+A. Dryness of mouth
+B. Delirium
+C. Dilated pupil
+D. Bradycardia
+
+[195] ID       : dpo_train_a0c2104c168c61ff
+    Ligne      : 2101
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2007
+    Contexte   : All of the following are features of Datura poisoning except: [PII]
+
+A. Dryness of mouth
+B. Delirium
+C. Dilated pupil
+D. Bradycardia
+
+[196] ID       : dpo_train_a0c2104c168c61ff
+    Ligne      : 2101
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2007
+    Contexte   : All of the following are features of Datura poisoning except: [PII]
+
+A. Dryness of mouth
+B. Delirium
+C. Dilated pupil
+D. Bradycardia
+
+[197] ID       : dpo_train_e3b7b9c93fd47931
+    Ligne      : 2198
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 05/29/2013
+    Contexte   : Hello,I had renal cell carcinoma and had a partial nephrectomy om [PII]. After 4 weeks I noticed a swelling which has subsequently got to the size of m
+
+[198] ID       : dpo_train_e3b7b9c93fd47931
+    Ligne      : 2198
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 05/29/2013
+    Contexte   : Hello,I had renal cell carcinoma and had a partial nephrectomy om [PII]. After 4 weeks I noticed a swelling which has subsequently got to the size of m
+
+[199] ID       : dpo_train_e3b7b9c93fd47931
+    Ligne      : 2198
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 05/29/2013
+    Contexte   : Hello,I had renal cell carcinoma and had a partial nephrectomy om [PII]. After 4 weeks I noticed a swelling which has subsequently got to the size of m
+
+[200] ID       : dpo_train_22955ca0dcf71b59
+    Ligne      : 2238
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2012
+    Contexte   : Which of the following statement is true regarding Acanthamoeba keratitis: [PII]
+
+A. For the isolation of the causative agent, corneal scraping should be cultur
+
+[201] ID       : dpo_train_22955ca0dcf71b59
+    Ligne      : 2238
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2012
+    Contexte   : Which of the following statement is true regarding Acanthamoeba keratitis: [PII]
+
+A. For the isolation of the causative agent, corneal scraping should be cultur
+
+[202] ID       : dpo_train_22955ca0dcf71b59
+    Ligne      : 2238
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2012
+    Contexte   : Which of the following statement is true regarding Acanthamoeba keratitis: [PII]
+
+A. For the isolation of the causative agent, corneal scraping should be cultur
+
+[203] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 20/6/14
+    Contexte   :  pain and breast tenderness. So i stop taking it. Last month i had my menses on [PII] (bleeding) and ends exactly weeks after that. However on 2/7/14 i had back brow
+
+[204] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 2/7/14
+    Contexte   : d my menses on 20/6/14 (bleeding) and ends exactly weeks after that. However on [PII] i had back brownish kind of menses with clots till today (14/7/14). Is it somet
+
+[205] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 14/7/14
+    Contexte   : at. However on 2/7/14 i had back brownish kind of menses with clots till today ([PII]). Is it something i should be worried about? And of course severe pain on right
+
+[206] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 20/6/14
+    Contexte   :  pain and breast tenderness. So i stop taking it. Last month i had my menses on [PII] (bleeding) and ends exactly weeks after that. However on 2/7/14 i had back brow
+
+[207] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 2/7/14
+    Contexte   : d my menses on 20/6/14 (bleeding) and ends exactly weeks after that. However on [PII] i had back brownish kind of menses with clots till today (14/7/14). Is it somet
+
+[208] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 14/7/14
+    Contexte   : at. However on 2/7/14 i had back brownish kind of menses with clots till today ([PII]). Is it something i should be worried about? And of course severe pain on right
+
+[209] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 20/6/14
+    Contexte   :  pain and breast tenderness. So i stop taking it. Last month i had my menses on [PII] (bleeding) and ends exactly weeks after that. However on 2/7/14 i had back brow
+
+[210] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 2/7/14
+    Contexte   : d my menses on 20/6/14 (bleeding) and ends exactly weeks after that. However on [PII] i had back brownish kind of menses with clots till today (14/7/14). Is it somet
+
+[211] ID       : dpo_train_2d105ba1f2576caa
+    Ligne      : 2252
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 14/7/14
+    Contexte   : at. However on 2/7/14 i had back brownish kind of menses with clots till today ([PII]). Is it something i should be worried about? And of course severe pain on right
+
+[212] ID       : dpo_train_e682f2273f4c52d0
+    Ligne      : 2260
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2012
+    Contexte   : Pa of cornea affected most in neuroparalytic keratopathy: [PII]
+
+A. Temporal 3rd of cornea
+B. Inferior 3rd of cornea
+C. Superior 3rd of cornea
+
+
+[213] ID       : dpo_train_e682f2273f4c52d0
+    Ligne      : 2260
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2012
+    Contexte   : Pa of cornea affected most in neuroparalytic keratopathy: [PII]
+
+A. Temporal 3rd of cornea
+B. Inferior 3rd of cornea
+C. Superior 3rd of cornea
+
+
+[214] ID       : dpo_train_e682f2273f4c52d0
+    Ligne      : 2260
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2012
+    Contexte   : Pa of cornea affected most in neuroparalytic keratopathy: [PII]
+
+A. Temporal 3rd of cornea
+B. Inferior 3rd of cornea
+C. Superior 3rd of cornea
+
+
+[215] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Oct 2010
+    Contexte   : I have 4 kids tubes were tied 2 years ago nursed my son until up to around [PII] My cycle started in August 2010 I have been having flutters in stomach now for 
+
+[216] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : August 2010
+    Contexte   :  tied 2 years ago nursed my son until up to around Oct 2010 My cycle started in [PII] I have been having flutters in stomach now for about 2 months strong. I have ju
+
+[217] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Oct 2010
+    Contexte   : I have 4 kids tubes were tied 2 years ago nursed my son until up to around [PII] My cycle started in August 2010 I have been having flutters in stomach now for 
+
+[218] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : August 2010
+    Contexte   :  tied 2 years ago nursed my son until up to around Oct 2010 My cycle started in [PII] I have been having flutters in stomach now for about 2 months strong. I have ju
+
+[219] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Oct 2010
+    Contexte   : I have 4 kids tubes were tied 2 years ago nursed my son until up to around [PII] My cycle started in August 2010 I have been having flutters in stomach now for 
+
+[220] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : August 2010
+    Contexte   :  tied 2 years ago nursed my son until up to around Oct 2010 My cycle started in [PII] I have been having flutters in stomach now for about 2 months strong. I have ju
+
+[221] ID       : dpo_train_e699df358f44b6ca
+    Ligne      : 2262
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : August 2010
+    Contexte   : al cycles, mood swings, and other symptoms. In your case, your cycle started in [PII], which is a relatively normal timeframe for hormonal adjustments.
+2. **Flutters
+
+[222] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 6/4/12
+    Contexte   : er gastro intestinal endoscopy::    Impression :Duodenal erosious (Post bulbar) [PII]                          Before 12 months back, i went to concert the gastoente
+
+[223] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 17-5-2012
+    Contexte   : 0-0        30 After 2 weeks i got motion in blood then he suggestted looz syrup [PII]t niffutin    100mg     0-0-1t cranpac                   1-0-0t unirub 20mg     
+
+[224] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 03-7-2012
+    Contexte   :  100mg     0-0-1t cranpac                   1-0-0t unirub 20mg             1- 0-[PII]t  Sepmax        1-0-1   7 dayst pantazole        1-0-1     7 dayst lactogent   
+
+[225] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 6/4/12
+    Contexte   : er gastro intestinal endoscopy::    Impression :Duodenal erosious (Post bulbar) [PII]                          Before 12 months back, i went to concert the gastoente
+
+[226] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 17-5-2012
+    Contexte   : 0-0        30 After 2 weeks i got motion in blood then he suggestted looz syrup [PII]t niffutin    100mg     0-0-1t cranpac                   1-0-0t unirub 20mg     
+
+[227] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 03-7-2012
+    Contexte   :  100mg     0-0-1t cranpac                   1-0-0t unirub 20mg             1- 0-[PII]t  Sepmax        1-0-1   7 dayst pantazole        1-0-1     7 dayst lactogent   
+
+[228] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 6/4/12
+    Contexte   : er gastro intestinal endoscopy::    Impression :Duodenal erosious (Post bulbar) [PII]                          Before 12 months back, i went to concert the gastoente
+
+[229] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 17-5-2012
+    Contexte   : 0-0        30 After 2 weeks i got motion in blood then he suggestted looz syrup [PII]t niffutin    100mg     0-0-1t cranpac                   1-0-0t unirub 20mg     
+
+[230] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 03-7-2012
+    Contexte   :  100mg     0-0-1t cranpac                   1-0-0t unirub 20mg             1- 0-[PII]t  Sepmax        1-0-1   7 dayst pantazole        1-0-1     7 dayst lactogent   
+
+[231] ID       : dpo_train_f7a891101e5ee0cb
+    Ligne      : 2584
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2012
+    Contexte   : ry of the tests and treatments you've had:
+
+* Upper gastrointestinal endoscopy ([PII]): Duodenal erosions (post-bulbar) were found.
+* Ultrasound and urine cultivatio
+
+[232] ID       : dpo_train_cfcf1b9bd92440d8
+    Ligne      : 2819
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 10993
+    Contexte   :  strategy complies with relevant regulatory guidelines and standards (e.g., ISO [PII], FDA guidelines).
+
+By incorporating both in vitro and in vivo evaluation phases
+
+[233] ID       : dpo_train_cfcf1b9bd92440d8
+    Ligne      : 2819
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 10993
+    Contexte   :  strategy complies with relevant regulatory guidelines and standards (e.g., ISO [PII], FDA guidelines).
+
+By incorporating both in vitro and in vivo evaluation phases
+
+[234] ID       : dpo_train_f5e7b97e90f14789
+    Ligne      : 3003
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 15296
+    Contexte   : ties in the upper respiratory tract of individuals with COPD. PLoS ONE, 5(12), e[PII].
+6. Xu et al. (2019). Proteomic analysis of the respiratory microbiome in COPD.
+
+[235] ID       : dpo_train_f5e7b97e90f14789
+    Ligne      : 3003
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 15296
+    Contexte   : ties in the upper respiratory tract of individuals with COPD. PLoS ONE, 5(12), e[PII].
+6. Xu et al. (2019). Proteomic analysis of the respiratory microbiome in COPD.
+
+[236] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : may 2011
+    Contexte   : I had avm surgery in [PII] followed by a stroke . I lost the use of my right side but slowing get it back.
+
+[237] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : August 2012
+    Contexte   :  Keppra 750mg twice a day for my epilepsy which is working last siezure back in [PII]. My right side is weak and have problems with my shoulder i have physio etc but
+
+[238] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : may 2011
+    Contexte   : I had avm surgery in [PII] followed by a stroke . I lost the use of my right side but slowing get it back.
+
+[239] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : August 2012
+    Contexte   :  Keppra 750mg twice a day for my epilepsy which is working last siezure back in [PII]. My right side is weak and have problems with my shoulder i have physio etc but
+
+[240] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : may 2011
+    Contexte   : I had avm surgery in [PII] followed by a stroke . I lost the use of my right side but slowing get it back.
+
+[241] ID       : dpo_train_ca1ba3781a2c47ae
+    Ligne      : 3110
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : August 2012
+    Contexte   :  Keppra 750mg twice a day for my epilepsy which is working last siezure back in [PII]. My right side is weak and have problems with my shoulder i have physio etc but
+
+[242] ID       : dpo_train_3a07da7ca40178e8
+    Ligne      : 3260
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : august 2010
+    Contexte   :  weight is 18 kgs, his height is 114 cm. he has been on and off quite sick from [PII] till date. last august he was diagonosed with typhoid and had antibiotic course
+
+[243] ID       : dpo_train_3a07da7ca40178e8
+    Ligne      : 3260
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : august 2010
+    Contexte   :  weight is 18 kgs, his height is 114 cm. he has been on and off quite sick from [PII] till date. last august he was diagonosed with typhoid and had antibiotic course
+
+[244] ID       : dpo_train_3a07da7ca40178e8
+    Ligne      : 3260
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : august 2010
+    Contexte   :  weight is 18 kgs, his height is 114 cm. he has been on and off quite sick from [PII] till date. last august he was diagonosed with typhoid and had antibiotic course
+
+[245] ID       : dpo_train_f8671ac5dbcb932b
+    Ligne      : 3317
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.who.int/news-room/fact-sheets/detail/hydrocephalus-and-spina-bifida
+    Contexte   : ld Health Organization. (2018). Hydrocephalus and spina bifida. Retrieved from <[PII]>
+7. American Academy of Pediatrics. (2019). Hydrocephalus. Pediatrics, 143(3), 
+
+[246] ID       : dpo_train_4533b62f1697dee6
+    Ligne      : 3330
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : June 2008
+    Contexte   : Schilling's test is false + ve in (PGI [PII])
+
+A. Celiac sprue
+B. Renal insufficiency
+C. Short bowel syndrome
+D. Diverticulo
+
+[247] ID       : dpo_train_4533b62f1697dee6
+    Ligne      : 3330
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : June 2008
+    Contexte   : Schilling's test is false + ve in (PGI [PII])
+
+A. Celiac sprue
+B. Renal insufficiency
+C. Short bowel syndrome
+D. Diverticulo
+
+[248] ID       : dpo_train_4533b62f1697dee6
+    Ligne      : 3330
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : June 2008
+    Contexte   : Schilling's test is false + ve in (PGI [PII])
+
+A. Celiac sprue
+B. Renal insufficiency
+C. Short bowel syndrome
+D. Diverticulo
+
+[249] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : June 1997
+    Contexte   : tabase were reviewed to identify patients with DCISM who underwent SLNB between [PII] and December 2010. Pathology reports were reviewed for number of microinvasive 
+
+[250] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : December 2010
+    Contexte   : viewed to identify patients with DCISM who underwent SLNB between June 1997 and [PII]. Pathology reports were reviewed for number of microinvasive foci and categoriz
+
+[251] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : June 1997
+    Contexte   : tabase were reviewed to identify patients with DCISM who underwent SLNB between [PII] and December 2010. Pathology reports were reviewed for number of microinvasive 
+
+[252] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : December 2010
+    Contexte   : viewed to identify patients with DCISM who underwent SLNB between June 1997 and [PII]. Pathology reports were reviewed for number of microinvasive foci and categoriz
+
+[253] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : June 1997
+    Contexte   : tabase were reviewed to identify patients with DCISM who underwent SLNB between [PII] and December 2010. Pathology reports were reviewed for number of microinvasive 
+
+[254] ID       : dpo_train_fd0405652f3135f5
+    Ligne      : 3414
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : December 2010
+    Contexte   : viewed to identify patients with DCISM who underwent SLNB between June 1997 and [PII]. Pathology reports were reviewed for number of microinvasive foci and categoriz
+
+[255] ID       : dpo_train_6e493dbd6baf7b54
+    Ligne      : 3509
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 15724
+    Contexte   : egulates fat storage. Proceedings of the National Academy of Sciences, 111(44), [PII]-15728.
+8. Zhang et al. (2019). Sex differences in the immune response to hormon
+
+[256] ID       : dpo_train_6e493dbd6baf7b54
+    Ligne      : 3509
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 15728
+    Contexte   : es fat storage. Proceedings of the National Academy of Sciences, 111(44), 15724-[PII].
+8. Zhang et al. (2019). Sex differences in the immune response to hormonal flu
+
+[257] ID       : dpo_train_6e493dbd6baf7b54
+    Ligne      : 3509
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 15724
+    Contexte   : egulates fat storage. Proceedings of the National Academy of Sciences, 111(44), [PII]-15728.
+8. Zhang et al. (2019). Sex differences in the immune response to hormon
+
+[258] ID       : dpo_train_6e493dbd6baf7b54
+    Ligne      : 3509
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 15728
+    Contexte   : es fat storage. Proceedings of the National Academy of Sciences, 111(44), 15724-[PII].
+8. Zhang et al. (2019). Sex differences in the immune response to hormonal flu
+
+[259] ID       : dpo_train_3f1ab3420d453959
+    Ligne      : 3524
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 02457
+    Contexte   : eurons and induces the unfolded protein response. Journal of Virology, 93(10), e[PII]-18.
+
+Please note that this response is based on a thorough review of the availa
+
+[260] ID       : dpo_train_3f1ab3420d453959
+    Ligne      : 3524
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 02457
+    Contexte   : eurons and induces the unfolded protein response. Journal of Virology, 93(10), e[PII]-18.
+
+Please note that this response is based on a thorough review of the availa
+
+[261] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[262] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[263] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[264] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[265] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[266] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 10000
+    Contexte   : epinephrine does not correspond to the respective route of administration
+
+A. 1:[PII] for intravenous route
+B. 1: 1000 for inhalational route
+C. 1: 1000 for intramus
+
+[267] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 10000
+    Contexte   : 
+The concentration of 1:[PII] is typically used for the intravenous route of administration. This is because 
+
+[268] ID       : dpo_train_5e3cf65b83f7cc76
+    Ligne      : 3650
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 10000
+    Contexte   : 
+The concentration of 1:[PII] is typically used for the intravenous route of administration. This is because 
+
+[269] ID       : dpo_train_8a614bc52d91cadb
+    Ligne      : 3675
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : jan 2012
+    Contexte   : hi i was c section in [PII] after that i have problem in my stitches my GP said you have incisional  hernia
+
+[270] ID       : dpo_train_8a614bc52d91cadb
+    Ligne      : 3675
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : jan 2012
+    Contexte   : hi i was c section in [PII] after that i have problem in my stitches my GP said you have incisional  hernia
+
+[271] ID       : dpo_train_8a614bc52d91cadb
+    Ligne      : 3675
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : jan 2012
+    Contexte   : hi i was c section in [PII] after that i have problem in my stitches my GP said you have incisional  hernia
+
+[272] ID       : dpo_train_7627e8fb75f38959
+    Ligne      : 3687
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : April 2023
+    Contexte   : As of my last update in [PII], I do not have access to real-time databases or current studies. Therefore, I c
+
+[273] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2007
+    Contexte   : statements is accurate about blood donor screening for T. cruzi infection after [PII], considering the specific sensitivities and specificities of FDA-approved assay
+
+[274] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2007
+    Contexte   : erological test to obtain FDA approval for screening purposes.
+D. Subsequent to [PII], a significant majority of U.S. blood donors have been screened for T. cruzi us
+
+[275] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2007
+    Contexte   : statements is accurate about blood donor screening for T. cruzi infection after [PII], considering the specific sensitivities and specificities of FDA-approved assay
+
+[276] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2007
+    Contexte   : erological test to obtain FDA approval for screening purposes.
+D. Subsequent to [PII], a significant majority of U.S. blood donors have been screened for T. cruzi us
+
+[277] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : January 2007
+    Contexte   : is not accurate as it mentions "after 2010," whereas the question states "after [PII]." Additionally, without the paragraph's information, we cannot determine the ti
+
+[278] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : January 2007
+    Contexte   : es that there was a significant change in blood donor screening practices after [PII] due to the FDA endorsement of an assay. Since the question specifically asks ab
+
+[279] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : January 2007
+    Contexte   : ment of an assay. Since the question specifically asks about the scenario after [PII] and considering the context of FDA approvals, this statement aligns with the li
+
+[280] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2007
+    Contexte   : statements is accurate about blood donor screening for T. cruzi infection after [PII], considering the specific sensitivities and specificities of FDA-approved assay
+
+[281] ID       : dpo_train_2ac73ba7c6179e41
+    Ligne      : 3923
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2007
+    Contexte   : erological test to obtain FDA approval for screening purposes.
+D. Subsequent to [PII], a significant majority of U.S. blood donors have been screened for T. cruzi us
+
+[282] ID       : dpo_train_78bd4f6a29aafd61
+    Ligne      : 3963
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : April 2023
+    Contexte   : gan transplantation, has been a rapidly evolving field. As of my last update in [PII], several key advancements and emerging patterns were shaping the landscape:
+
+1.
+
+[283] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2012
+    Contexte   : or cirrhotic patients with portal hypertension who underwent SPD.
+Context: From [PII] to January 2015, 43 patients with portal hypertension and hypersplenism caused 
+
+[284] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2015
+    Contexte   : ients with portal hypertension who underwent SPD.
+Context: From January 2012 to [PII], 43 patients with portal hypertension and hypersplenism caused by liver cirrhos
+
+[285] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2012
+    Contexte   : or cirrhotic patients with portal hypertension who underwent SPD.
+Context: From [PII] to January 2015, 43 patients with portal hypertension and hypersplenism caused 
+
+[286] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2015
+    Contexte   : ients with portal hypertension who underwent SPD.
+Context: From January 2012 to [PII], 43 patients with portal hypertension and hypersplenism caused by liver cirrhos
+
+[287] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2012
+    Contexte   : or cirrhotic patients with portal hypertension who underwent SPD.
+Context: From [PII] to January 2015, 43 patients with portal hypertension and hypersplenism caused 
+
+[288] ID       : dpo_train_9d3e1edcc408d215
+    Ligne      : 4133
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2015
+    Contexte   : ients with portal hypertension who underwent SPD.
+Context: From January 2012 to [PII], 43 patients with portal hypertension and hypersplenism caused by liver cirrhos
+
+[289] ID       : dpo_train_a7b4deb93e424ac7
+    Ligne      : 4143
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : April 2023
+    Contexte   : ed medical condition in the standard medical literature as of my last update in [PII]. It seems like you're asking about a hypothetical or fictional syndrome, so let
+
+[290] ID       : dpo_train_eecd36f2495f6278
+    Ligne      : 4201
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2007
+    Contexte   :  the following are features of chest radiography in Tetralogy of fallot except: [PII]
+
+A. Boot shaped hea shadow
+B. In 80% right sided arch of aoa
+C. Oligemic lung f
+
+[291] ID       : dpo_train_eecd36f2495f6278
+    Ligne      : 4201
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2007
+    Contexte   :  the following are features of chest radiography in Tetralogy of fallot except: [PII]
+
+A. Boot shaped hea shadow
+B. In 80% right sided arch of aoa
+C. Oligemic lung f
+
+[292] ID       : dpo_train_eecd36f2495f6278
+    Ligne      : 4201
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2007
+    Contexte   :  the following are features of chest radiography in Tetralogy of fallot except: [PII]
+
+A. Boot shaped hea shadow
+B. In 80% right sided arch of aoa
+C. Oligemic lung f
+
+[293] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[294] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[295] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[296] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[297] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[298] ID       : dpo_train_f915abfb02aa596e
+    Ligne      : 4333
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 16700
+    Contexte   : 17 kg , name - vansh (male)fever for past 11 days now , max upto 102 deg, TLC - [PII] & so DLC also not good. WIDAL OK, MP- negative. Pain in chest , sometimes seems
+
+[299] ID       : dpo_train_bdf8b7392fafd602
+    Ligne      : 4361
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : April 2023
+    Contexte   : cially those within the last 24 months, due to my last training data cut-off in [PII]. However, I can provide a general critique based on established scientific prin
+
+[300] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.drugabuse.gov/publications/drugs-brains-behavior-opioids-opioid-use-disorder
+    Contexte   :  National Institute on Drug Abuse. (2020). Opioid use disorder. Retrieved from <[PII]>
+2. Centers for Disease Control and Prevention. (2020). Opioid overdose data. R
+
+[301] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.cdc.gov/drugoverdose/data/index.html
+    Contexte   : r Disease Control and Prevention. (2020). Opioid overdose data. Retrieved from <[PII]>
+3. Substance Abuse and Mental Health Services Administration. (2020). 2019 Nat
+
+[302] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.samhsa.gov/data/report/2019-nsduh-annual-national-report
+    Contexte   : n. (2020). 2019 National Survey on Drug Use and Health (NSDUH). Retrieved from <[PII]>
+4. National Institute on Minority Health and Health Disparities. (2020). Opioi
+
+[303] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.nimhd.nih.gov/health-disparities/opioid-use-disorder-and-health-disparities/
+    Contexte   : isparities. (2020). Opioid use disorder and health disparities. Retrieved from <[PII]>
+5. Centers for Disease Control and Prevention. (2020). Opioid overdose among r
+
+[304] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.cdc.gov/drugoverdose/data/rural.html
+    Contexte   :  and Prevention. (2020). Opioid overdose among rural residents. Retrieved from <[PII]>
+6. Substance Abuse and Mental Health Services Administration. (2020). 2019 Nat
+
+[305] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.samhsa.gov/data/report/2019-nsduh-annual-national-report
+    Contexte   : n. (2020). 2019 National Survey on Drug Use and Health (NSDUH). Retrieved from <[PII]>
+7. Centers for Disease Control and Prevention. (2020). Opioid overdose data. R
+
+[306] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.cdc.gov/drugoverdose/data/index.html
+    Contexte   : r Disease Control and Prevention. (2020). Opioid overdose data. Retrieved from <[PII]>
+8. National Institute on Drug Abuse. (2020). Opioid overdose data. Retrieved f
+
+[307] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.drugabuse.gov/publications/drugs-brains-behavior-opioids-opioid-overdose-data
+    Contexte   : National Institute on Drug Abuse. (2020). Opioid overdose data. Retrieved from <[PII]>
+9. Centers for Disease Control and Prevention. (2020). Fentanyl-related overdo
+
+[308] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.cdc.gov/drugoverdose/data/fentanyl.html
+    Contexte   : ntrol and Prevention. (2020). Fentanyl-related overdose deaths. Retrieved from <[PII]>
+10. Centers for Disease Control and Prevention. (2020). Guideline for prescrib
+
+[309] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.cdc.gov/mmwr/preview/mmwrhtml/rr6906a1.htm
+    Contexte   : on. (2020). Guideline for prescribing opioids for chronic pain. Retrieved from <[PII]>
+11. Substance Abuse and Mental Health Services Administration. (2020). Medicat
+
+[310] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.samhsa.gov/medication-assisted-treatment
+    Contexte   : es Administration. (2020). Medication-assisted treatment (MAT). Retrieved from <[PII]>
+12. National Institute on Drug Abuse. (2020). Harm reduction. Retrieved from <
+
+[311] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.drugabuse.gov/publications/drugs-brains-behavior-opioids-harm-reduction
+    Contexte   : >
+12. National Institute on Drug Abuse. (2020). Harm reduction. Retrieved from <[PII]>
+13. World Health Organization. (2020). Addressing social determinants of healt
+
+[312] ID       : dpo_train_5c7c0f9b8dacf5bf
+    Ligne      : 4425
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : https://www.who.int/social_determinants/en/
+    Contexte   : Organization. (2020). Addressing social determinants of health. Retrieved from <[PII]>
+
+[313] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[314] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[315] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[316] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[317] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 30000
+    Contexte   :  indicating anemia, leukopenia, and pancytopenia. The platelet count is normal ([PII]). The reticulocyte count is low (1%), which suggests that the bone marrow is no
+
+[318] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 30000
+    Contexte   :  indicating anemia, leukopenia, and pancytopenia. The platelet count is normal ([PII]). The reticulocyte count is low (1%), which suggests that the bone marrow is no
+
+[319] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[320] ID       : dpo_train_87deda004c2cc925
+    Ligne      : 4432
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 30000
+    Contexte   : 100/60, RR 20, T 101.5 F. CBC is significant for Hgb 3.2, WBC 2.1, Hct 10, Plts [PII]. The reticulocyte count is 1% and the MCV is 81. Bone marrow biopsy shows hypoc
+
+[321] ID       : dpo_train_3eb4648bb742d37f
+    Ligne      : 4561
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2007
+    Contexte   : Metastasis from follicular carcinoma should be treated by: [PII]
+
+A. Radioiodine
+B. Surgery
+C. Thyroxine
+D. Observation
+
+[322] ID       : dpo_train_3eb4648bb742d37f
+    Ligne      : 4561
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2007
+    Contexte   : Metastasis from follicular carcinoma should be treated by: [PII]
+
+A. Radioiodine
+B. Surgery
+C. Thyroxine
+D. Observation
+
+[323] ID       : dpo_train_3eb4648bb742d37f
+    Ligne      : 4561
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2007
+    Contexte   : Metastasis from follicular carcinoma should be treated by: [PII]
+
+A. Radioiodine
+B. Surgery
+C. Thyroxine
+D. Observation
+
+[324] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : December 2014
+    Contexte   : I found out in [PII] I had a cyst like on m left kindey it was 3.6 in size by January 2015 it was 8 
+
+[325] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2015
+    Contexte   : d out in December 2014 I had a cyst like on m left kindey it was 3.6 in size by [PII] it was 8 and I keep bladder bacteria and infections it hurts really bad all the
+
+[326] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : December 2014
+    Contexte   : I found out in [PII] I had a cyst like on m left kindey it was 3.6 in size by January 2015 it was 8 
+
+[327] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2015
+    Contexte   : d out in December 2014 I had a cyst like on m left kindey it was 3.6 in size by [PII] it was 8 and I keep bladder bacteria and infections it hurts really bad all the
+
+[328] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : December 2014
+    Contexte   : I found out in [PII] I had a cyst like on m left kindey it was 3.6 in size by January 2015 it was 8 
+
+[329] ID       : dpo_train_ea169d8b338ce152
+    Ligne      : 4617
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2015
+    Contexte   : d out in December 2014 I had a cyst like on m left kindey it was 3.6 in size by [PII] it was 8 and I keep bladder bacteria and infections it hurts really bad all the
+
+[330] ID       : dpo_train_6e0a513e61bc5775
+    Ligne      : 4783
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : dec 2016
+    Contexte   : lem which was removed through medicines previously. i had my sonugraphy done in [PII] which clearly states normal reports excepts crystal of calcium oxalate & past h
+
+[331] ID       : dpo_train_6e0a513e61bc5775
+    Ligne      : 4783
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : dec 2016
+    Contexte   : lem which was removed through medicines previously. i had my sonugraphy done in [PII] which clearly states normal reports excepts crystal of calcium oxalate & past h
+
+[332] ID       : dpo_train_6e0a513e61bc5775
+    Ligne      : 4783
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : dec 2016
+    Contexte   : lem which was removed through medicines previously. i had my sonugraphy done in [PII] which clearly states normal reports excepts crystal of calcium oxalate & past h
+
+[333] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : july 2010
+    Contexte   : emale and I have 3 children all natural births. I had a partial hysterectomy in [PII], I have been having lower right side pain since dec 2012 and now is increasingl
+
+[334] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : dec 2012
+    Contexte   : rtial hysterectomy in july 2010, I have been having lower right side pain since [PII] and now is increasingly getting worse iv been to the er and dr and they cant fi
+
+[335] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : july 2010
+    Contexte   : emale and I have 3 children all natural births. I had a partial hysterectomy in [PII], I have been having lower right side pain since dec 2012 and now is increasingl
+
+[336] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : dec 2012
+    Contexte   : rtial hysterectomy in july 2010, I have been having lower right side pain since [PII] and now is increasingly getting worse iv been to the er and dr and they cant fi
+
+[337] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : july 2010
+    Contexte   : emale and I have 3 children all natural births. I had a partial hysterectomy in [PII], I have been having lower right side pain since dec 2012 and now is increasingl
+
+[338] ID       : dpo_train_4060e174ae011d68
+    Ligne      : 4820
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : dec 2012
+    Contexte   : rtial hysterectomy in july 2010, I have been having lower right side pain since [PII] and now is increasingly getting worse iv been to the er and dr and they cant fi
+
+[339] ID       : dpo_train_77451141e5824278
+    Ligne      : 4838
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 11195
+    Contexte   : ment of radiotracers that bind specifically to markers of inflammation (e.g., PK[PII] for TSPO, a marker associated with microglial activation) enhances PET's specif
+
+[340] ID       : dpo_train_77451141e5824278
+    Ligne      : 4838
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 11195
+    Contexte   : ment of radiotracers that bind specifically to markers of inflammation (e.g., PK[PII] for TSPO, a marker associated with microglial activation) enhances PET's specif
+
+[341] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[342] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[343] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[344] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[345] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 12000
+    Contexte   : ever, and pain for 2 months. The fever is 102-103 F, and the leucocyte count is [PII] cu/mm, indicating an active infection. The X-ray PNS showed opacification of th
+
+[346] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 12000
+    Contexte   : ever, and pain for 2 months. The fever is 102-103 F, and the leucocyte count is [PII] cu/mm, indicating an active infection. The X-ray PNS showed opacification of th
+
+[347] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[348] ID       : dpo_train_26c17c6f20927cf8
+    Ligne      : 4883
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : e,fever and pain since 2 months. His fever is 102-103 F, and leucocyte count is [PII] cu/mm.X ray PNS showed opacification of left ethmoidal air cells.The culture of
+
+[349] ID       : dpo_train_b4d74f270a919996
+    Ligne      : 4934
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00351
+    Contexte   : roduction is associated with disease severity. Infection and Immunity, 85(10), e[PII]-17.
+2. **Wang et al. (2019)**. Genetic variation in the hemagglutinin gene of i
+
+[350] ID       : dpo_train_b4d74f270a919996
+    Ligne      : 4934
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00151
+    Contexte   : ociated with virulence and severity of infection. Journal of Virology, 93(11), e[PII]-19.
+3. **Nobile et al. (2018)**. Genetic variation in Candida albicans is assoc
+
+[351] ID       : dpo_train_b4d74f270a919996
+    Ligne      : 4934
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 01191
+    Contexte   :  albicans is associated with virulence and severity of candidemia. mBio, 9(4), e[PII]-18.
+
+[352] ID       : dpo_train_b4d74f270a919996
+    Ligne      : 4934
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 01191
+    Contexte   :  albicans is associated with virulence and severity of candidemia. mBio, 9(4), e[PII]-18.
+
+[353] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 12/18/2009
+    Contexte   : t my daughter, the lab results and my questions.1)My daughters info: Born date: [PII]; weight at birth: 4kg; height at birth: 54cm; As of 05/17/2011: weight 13.4 kg;
+
+[354] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 05/17/2011
+    Contexte   : info: Born date: 12/18/2009; weight at birth: 4kg; height at birth: 54cm; As of [PII]: weight 13.4 kg; height: 83cm.2) Lab results for hormones:Lab 1: (FSH =1.07 IU/
+
+[355] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 12/18/2009
+    Contexte   : t my daughter, the lab results and my questions.1)My daughters info: Born date: [PII]; weight at birth: 4kg; height at birth: 54cm; As of 05/17/2011: weight 13.4 kg;
+
+[356] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 05/17/2011
+    Contexte   : info: Born date: 12/18/2009; weight at birth: 4kg; height at birth: 54cm; As of [PII]: weight 13.4 kg; height: 83cm.2) Lab results for hormones:Lab 1: (FSH =1.07 IU/
+
+[357] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 12/18/2009
+    Contexte   : t my daughter, the lab results and my questions.1)My daughters info: Born date: [PII]; weight at birth: 4kg; height at birth: 54cm; As of 05/17/2011: weight 13.4 kg;
+
+[358] ID       : dpo_train_b8751f65279c4d75
+    Ligne      : 4966
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 05/17/2011
+    Contexte   : info: Born date: 12/18/2009; weight at birth: 4kg; height at birth: 54cm; As of [PII]: weight 13.4 kg; height: 83cm.2) Lab results for hormones:Lab 1: (FSH =1.07 IU/
+
+
+### dpo_validation — 110 matchs
+
+[1] ID       : dpo_validation_103fc7d341eaecb4
+    Ligne      : 20
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : feb 2007
+    Contexte   : ux test it is positive what i do? i have no kids, i have problem in consive. on [PII] i got marriage. plz help me .
+
+[2] ID       : dpo_validation_103fc7d341eaecb4
+    Ligne      : 20
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : feb 2007
+    Contexte   : ux test it is positive what i do? i have no kids, i have problem in consive. on [PII] i got marriage. plz help me .
+
+[3] ID       : dpo_validation_103fc7d341eaecb4
+    Ligne      : 20
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : feb 2007
+    Contexte   : ux test it is positive what i do? i have no kids, i have problem in consive. on [PII] i got marriage. plz help me .
+
+[4] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : January 2011
+    Contexte   : ue for daily clinical practice.
+Context: A total of 106 patients underwent RRP ([PII]-June 2012) and had preoperative MRI staging data available for review. Staging 
+
+[5] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : June 2012
+    Contexte   : clinical practice.
+Context: A total of 106 patients underwent RRP (January 2011-[PII]) and had preoperative MRI staging data available for review. Staging results ac
+
+[6] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : January 2011
+    Contexte   : ue for daily clinical practice.
+Context: A total of 106 patients underwent RRP ([PII]-June 2012) and had preoperative MRI staging data available for review. Staging 
+
+[7] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : June 2012
+    Contexte   : clinical practice.
+Context: A total of 106 patients underwent RRP (January 2011-[PII]) and had preoperative MRI staging data available for review. Staging results ac
+
+[8] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : January 2011
+    Contexte   : ue for daily clinical practice.
+Context: A total of 106 patients underwent RRP ([PII]-June 2012) and had preoperative MRI staging data available for review. Staging 
+
+[9] ID       : dpo_validation_8eca581e37ee539c
+    Ligne      : 36
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : June 2012
+    Contexte   : clinical practice.
+Context: A total of 106 patients underwent RRP (January 2011-[PII]) and had preoperative MRI staging data available for review. Staging results ac
+
+[10] ID       : dpo_validation_ed779f637b205339
+    Ligne      : 60
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Jan 2010
+    Contexte   : I am 30 years old.I got married on [PII].I am not yet conceived.My Doctor suggested me to do X-Ray to check my fallopian
+
+[11] ID       : dpo_validation_ed779f637b205339
+    Ligne      : 60
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Jan 2010
+    Contexte   : I am 30 years old.I got married on [PII].I am not yet conceived.My Doctor suggested me to do X-Ray to check my fallopian
+
+[12] ID       : dpo_validation_ed779f637b205339
+    Ligne      : 60
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Jan 2010
+    Contexte   : I am 30 years old.I got married on [PII].I am not yet conceived.My Doctor suggested me to do X-Ray to check my fallopian
+
+[13] ID       : dpo_validation_e5bf4bc08770b34d
+    Ligne      : 77
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2013
+    Contexte   : plains uncontrollable fear of being murdered, insomnia etc. Likely Diagnosis is:[PII] (b)
+
+A. Alcoholic seiqzures/rum fits
+B. Korsakoff's psychosis
+C. Delirium treme
+
+[14] ID       : dpo_validation_e5bf4bc08770b34d
+    Ligne      : 77
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2013
+    Contexte   : plains uncontrollable fear of being murdered, insomnia etc. Likely Diagnosis is:[PII] (b)
+
+A. Alcoholic seiqzures/rum fits
+B. Korsakoff's psychosis
+C. Delirium treme
+
+[15] ID       : dpo_validation_e5bf4bc08770b34d
+    Ligne      : 77
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2013
+    Contexte   : plains uncontrollable fear of being murdered, insomnia etc. Likely Diagnosis is:[PII] (b)
+
+A. Alcoholic seiqzures/rum fits
+B. Korsakoff's psychosis
+C. Delirium treme
+
+[16] ID       : dpo_validation_8b0801a3f09603a5
+    Ligne      : 95
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2007
+    Contexte   : istration of coicosteroids for fetal lung maturity all of the following except: [PII]
+
+A. Repeat dose if the women remains undelivered after the first course
+B. Decr
+
+[17] ID       : dpo_validation_8b0801a3f09603a5
+    Ligne      : 95
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2007
+    Contexte   : istration of coicosteroids for fetal lung maturity all of the following except: [PII]
+
+A. Repeat dose if the women remains undelivered after the first course
+B. Decr
+
+[18] ID       : dpo_validation_8b0801a3f09603a5
+    Ligne      : 95
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2007
+    Contexte   : istration of coicosteroids for fetal lung maturity all of the following except: [PII]
+
+A. Repeat dose if the women remains undelivered after the first course
+B. Decr
+
+[19] ID       : dpo_validation_823cb88bde4a43e7
+    Ligne      : 121
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Feb 2015
+    Contexte   : I had my right hip replaced in [PII]. My leg locks, with severe pain, after I stand awhile, or get up from sitting. 
+
+[20] ID       : dpo_validation_823cb88bde4a43e7
+    Ligne      : 121
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Feb 2015
+    Contexte   : I had my right hip replaced in [PII]. My leg locks, with severe pain, after I stand awhile, or get up from sitting. 
+
+[21] ID       : dpo_validation_823cb88bde4a43e7
+    Ligne      : 121
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Feb 2015
+    Contexte   : I had my right hip replaced in [PII]. My leg locks, with severe pain, after I stand awhile, or get up from sitting. 
+
+[22] ID       : dpo_validation_b13a05faeda7f02c
+    Ligne      : 137
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : June 2014
+    Contexte   : eding ulcer. Any suggestions on pain releif? I have been living with this since [PII]. Thanks, Lance
+
+[23] ID       : dpo_validation_b13a05faeda7f02c
+    Ligne      : 137
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : June 2014
+    Contexte   : eding ulcer. Any suggestions on pain releif? I have been living with this since [PII]. Thanks, Lance
+
+[24] ID       : dpo_validation_b13a05faeda7f02c
+    Ligne      : 137
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : June 2014
+    Contexte   : eding ulcer. Any suggestions on pain releif? I have been living with this since [PII]. Thanks, Lance
+
+[25] ID       : dpo_validation_d39946b1823faa96
+    Ligne      : 144
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : December 2009
+    Contexte   : ave narcolepsy and got my diagnosis 2011. I was vaccinated against swine flu in [PII], the doctors that I ve talked to believe that vaccination has triggered this. I
+
+[26] ID       : dpo_validation_d39946b1823faa96
+    Ligne      : 144
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : December 2009
+    Contexte   : ave narcolepsy and got my diagnosis 2011. I was vaccinated against swine flu in [PII], the doctors that I ve talked to believe that vaccination has triggered this. I
+
+[27] ID       : dpo_validation_d39946b1823faa96
+    Ligne      : 144
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : December 2009
+    Contexte   : ave narcolepsy and got my diagnosis 2011. I was vaccinated against swine flu in [PII], the doctors that I ve talked to believe that vaccination has triggered this. I
+
+[28] ID       : dpo_validation_9cdbf9f18c5ac9c2
+    Ligne      : 156
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : March 2023
+    Contexte   : tribute to the development of this condition. As of my knowledge cutoff date in [PII], it is important for individuals with TSFD to work with healthcare professional
+
+[29] ID       : dpo_validation_f9d16764d928de17
+    Ligne      : 218
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00663
+    Contexte   : y bowel disease: a novel concept for an old disease. Pharmacol Res Perspect 8, e[PII].
+
+Gurung, N., Vangay, P., and Schwager, E. (2019). The gut microbiota in type 1
+
+[30] ID       : dpo_validation_f9d16764d928de17
+    Ligne      : 218
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 35624
+    Contexte   : .
+
+Moens, K.B., Verspreet, J., and Verbeke, K. (2012). Bifidobacterium infantis [PII] modulates host inflammatory processes beyond the gut. Gut Microbes 3, 328-338.
+
+
+[31] ID       : dpo_validation_f9d16764d928de17
+    Ligne      : 218
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 35624
+    Contexte   : .
+
+Moens, K.B., Verspreet, J., and Verbeke, K. (2012). Bifidobacterium infantis [PII] modulates host inflammatory processes beyond the gut. Gut Microbes 3, 328-338.
+
+
+[32] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[33] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[34] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[35] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[36] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[37] ID       : dpo_validation_ab177af453701d4e
+    Ligne      : 229
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 15000
+    Contexte   : y drs prescribed Ivig ing and steroids. platelet count did not increased beyond [PII]. then reffered to heamatology drs and they put him on dapson for 9 months. no i
+
+[38] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 9/21/17
+    Contexte   : some blood tests done recently and The last ones were done a week apart. One on [PII] and the other 10/12/17. the first one showed high wbc as 13.4, normal rbc and h
+
+[39] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 10/12/17
+    Contexte   : recently and The last ones were done a week apart. One on 9/21/17 and the other [PII]. the first one showed high wbc as 13.4, normal rbc and high neurtophils (absolu
+
+[40] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 9/21/17
+    Contexte   : some blood tests done recently and The last ones were done a week apart. One on [PII] and the other 10/12/17. the first one showed high wbc as 13.4, normal rbc and h
+
+[41] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 10/12/17
+    Contexte   : recently and The last ones were done a week apart. One on 9/21/17 and the other [PII]. the first one showed high wbc as 13.4, normal rbc and high neurtophils (absolu
+
+[42] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 20-20-20
+    Contexte   : x, such as meditation, deep breathing, or yoga.
+4. Limit eye strain: Follow the [PII] rule: every 20 minutes, look away from your screen and focus on something 20 fe
+
+[43] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 9/21/17
+    Contexte   : some blood tests done recently and The last ones were done a week apart. One on [PII] and the other 10/12/17. the first one showed high wbc as 13.4, normal rbc and h
+
+[44] ID       : dpo_validation_218e8f447c17fdff
+    Ligne      : 255
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 10/12/17
+    Contexte   : recently and The last ones were done a week apart. One on 9/21/17 and the other [PII]. the first one showed high wbc as 13.4, normal rbc and high neurtophils (absolu
+
+[45] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[46] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[47] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[48] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[49] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 55933
+    Contexte   : ificant role in mediating doxorubicin-induced cardiotoxic effects. The use of KU[PII], an ATM inhibitor, successfully prevented these toxic effects, corroborating th
+
+[50] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 55933
+    Contexte   : ificant role in mediating doxorubicin-induced cardiotoxic effects. The use of KU[PII], an ATM inhibitor, successfully prevented these toxic effects, corroborating th
+
+[51] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[52] ID       : dpo_validation_2e24d4084fbe0d59
+    Ligne      : 370
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 55933
+    Contexte   : es at later stages. Therapeutically, a potent and selective inhibitor of ATM, KU[PII], when administered systemically was able to prevent Dox-induced cardiotoxicity.
+
+[53] ID       : dpo_validation_4d282c301e5db807
+    Ligne      : 378
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 16228
+    Contexte   : 3 poliovirus translates to approximately 316,228 TCID50, as 10^0.5 is roughly 3.[PII]. Therefore, the closest answer to this value would be 300,000 TCID50, which is 
+
+[54] ID       : dpo_validation_4d282c301e5db807
+    Ligne      : 378
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 16228
+    Contexte   : 3 poliovirus translates to approximately 316,228 TCID50, as 10^0.5 is roughly 3.[PII]. Therefore, the closest answer to this value would be 300,000 TCID50, which is 
+
+[55] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : November 2014
+    Contexte   : mass. Which of the following is seen on electron microscopic examination?(AIIMS [PII], November 2013)
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granule
+
+[56] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : November 2013
+    Contexte   : the following is seen on electron microscopic examination?(AIIMS November 2014, [PII])
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granules in the cytopl
+
+[57] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : November 2014
+    Contexte   : mass. Which of the following is seen on electron microscopic examination?(AIIMS [PII], November 2013)
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granule
+
+[58] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : November 2013
+    Contexte   : the following is seen on electron microscopic examination?(AIIMS November 2014, [PII])
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granules in the cytopl
+
+[59] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : November 2014
+    Contexte   : mass. Which of the following is seen on electron microscopic examination?(AIIMS [PII], November 2013)
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granule
+
+[60] ID       : dpo_validation_e6a3badd5e5b727b
+    Ligne      : 411
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : November 2013
+    Contexte   : the following is seen on electron microscopic examination?(AIIMS November 2014, [PII])
+
+A. Numerous long, slender microvilli
+B. Neurosecretory granules in the cytopl
+
+[61] ID       : dpo_validation_e8c738f38e494f34
+    Ligne      : 510
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : March 2013
+    Contexte   : Retroperitoneal fibrosis is seen with which 5HT1 and 5HT2 receptor antagonist: [PII] (d)
+
+A. Ketanserin
+B. Cyproheptadine
+C. Methysergide
+D. All of the above
+
+[62] ID       : dpo_validation_e8c738f38e494f34
+    Ligne      : 510
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : March 2013
+    Contexte   : Retroperitoneal fibrosis is seen with which 5HT1 and 5HT2 receptor antagonist: [PII] (d)
+
+A. Ketanserin
+B. Cyproheptadine
+C. Methysergide
+D. All of the above
+
+[63] ID       : dpo_validation_e8c738f38e494f34
+    Ligne      : 510
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : March 2013
+    Contexte   : Retroperitoneal fibrosis is seen with which 5HT1 and 5HT2 receptor antagonist: [PII] (d)
+
+A. Ketanserin
+B. Cyproheptadine
+C. Methysergide
+D. All of the above
+
+[64] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : APRIL 2004
+    Contexte   : o have multi resistance TB. And I need your help regarding this.  My TB history:[PII]: first time detected, cough fever etc. first treatment  for 3 months and I feel
+
+[65] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : MAY 2005
+    Contexte   : ver etc. first treatment  for 3 months and I feel ok. (i was in munich germany) [PII]: came back: was in hospital for 8 weeks in isolation, MTB detected, treatment w
+
+[66] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : APRIL 2008
+    Contexte   : y)... Strptomycin, Cirpofloxin, ethanbutol taken for 1 yr. and 3 months around. [PII]: TB came back with very badly.. cough, fever etc... dr. suggested medicine (H/R
+
+[67] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : October 2009
+    Contexte   : FX)..I feel good but have lymphnodes in stomach. The x rays were become stable. [PII]: I came back to germany and regular CT scan check up... nodes found not decreas
+
+[68] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : sept 2009
+    Contexte   : l upper lobe in left side is removed. (hospitalization in germany 8 weeks) from [PII] I have taken following medicationstill jan 2011: Moxifloxacine 400 mg 1-0-0Pyra
+
+[69] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : jan 2011
+    Contexte   : ation in germany 8 weeks) from sept 2009 I have taken following medicationstill [PII]: Moxifloxacine 400 mg 1-0-0Pyrazinamide 500 mg 3-0-0strptomycine 1 g     1-0-0 
+
+[70] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : jun 2010
+    Contexte   : ffects, missmaneged some drug after 8 months) Problem of today:I did CT scan in [PII] and it looks stable... After 6 months in 4 jan 2011, I did again one CT scan an
+
+[71] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : jan 2011
+    Contexte   : m of today:I did CT scan in jun 2010 and it looks stable... After 6 months in 4 [PII], I did again one CT scan and on left side of lung, the is very little growth of
+
+[72] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : APRIL 2004
+    Contexte   : o have multi resistance TB. And I need your help regarding this.  My TB history:[PII]: first time detected, cough fever etc. first treatment  for 3 months and I feel
+
+[73] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : MAY 2005
+    Contexte   : ver etc. first treatment  for 3 months and I feel ok. (i was in munich germany) [PII]: came back: was in hospital for 8 weeks in isolation, MTB detected, treatment w
+
+[74] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : APRIL 2008
+    Contexte   : y)... Strptomycin, Cirpofloxin, ethanbutol taken for 1 yr. and 3 months around. [PII]: TB came back with very badly.. cough, fever etc... dr. suggested medicine (H/R
+
+[75] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : October 2009
+    Contexte   : FX)..I feel good but have lymphnodes in stomach. The x rays were become stable. [PII]: I came back to germany and regular CT scan check up... nodes found not decreas
+
+[76] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : sept 2009
+    Contexte   : l upper lobe in left side is removed. (hospitalization in germany 8 weeks) from [PII] I have taken following medicationstill jan 2011: Moxifloxacine 400 mg 1-0-0Pyra
+
+[77] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : jan 2011
+    Contexte   : ation in germany 8 weeks) from sept 2009 I have taken following medicationstill [PII]: Moxifloxacine 400 mg 1-0-0Pyrazinamide 500 mg 3-0-0strptomycine 1 g     1-0-0 
+
+[78] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : jun 2010
+    Contexte   : ffects, missmaneged some drug after 8 months) Problem of today:I did CT scan in [PII] and it looks stable... After 6 months in 4 jan 2011, I did again one CT scan an
+
+[79] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : jan 2011
+    Contexte   : m of today:I did CT scan in jun 2010 and it looks stable... After 6 months in 4 [PII], I did again one CT scan and on left side of lung, the is very little growth of
+
+[80] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : April 2004
+    Contexte   : gestions.
+
+**Summary of your TB history:**
+
+You were first diagnosed with TB in [PII] and received treatment for 3 months. The disease relapsed in May 2005, and you 
+
+[81] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : May 2005
+    Contexte   : h TB in April 2004 and received treatment for 3 months. The disease relapsed in [PII], and you were treated with multiple antibiotics, including Streptomycin, Ciprof
+
+[82] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : April 2008
+    Contexte   : loxacin, and Ethambutol, for 1 year and 3 months. The disease relapsed again in [PII], and you received treatment with a different regimen (H/R/E/S/LFX). Despite tre
+
+[83] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : September 2009
+    Contexte   :  the stomach persisted, and your CT scans showed no significant improvement. In [PII], you underwent surgery to remove the infected part of your left upper lobe in G
+
+[84] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : January 2011
+    Contexte   : ibiotics, including Moxifloxacin, Pyrazinamide, Streptomycin, and others, until [PII].
+
+**Current situation:**
+
+Your recent CT scan in January 2011 showed a small gr
+
+[85] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : January 2011
+    Contexte   : and others, until January 2011.
+
+**Current situation:**
+
+Your recent CT scan in [PII] showed a small growth of bacteria in your left lung, but your bronchoscopy and 
+
+[86] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : APRIL 2004
+    Contexte   : o have multi resistance TB. And I need your help regarding this.  My TB history:[PII]: first time detected, cough fever etc. first treatment  for 3 months and I feel
+
+[87] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : MAY 2005
+    Contexte   : ver etc. first treatment  for 3 months and I feel ok. (i was in munich germany) [PII]: came back: was in hospital for 8 weeks in isolation, MTB detected, treatment w
+
+[88] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : APRIL 2008
+    Contexte   : y)... Strptomycin, Cirpofloxin, ethanbutol taken for 1 yr. and 3 months around. [PII]: TB came back with very badly.. cough, fever etc... dr. suggested medicine (H/R
+
+[89] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : October 2009
+    Contexte   : FX)..I feel good but have lymphnodes in stomach. The x rays were become stable. [PII]: I came back to germany and regular CT scan check up... nodes found not decreas
+
+[90] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : sept 2009
+    Contexte   : l upper lobe in left side is removed. (hospitalization in germany 8 weeks) from [PII] I have taken following medicationstill jan 2011: Moxifloxacine 400 mg 1-0-0Pyra
+
+[91] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : jan 2011
+    Contexte   : ation in germany 8 weeks) from sept 2009 I have taken following medicationstill [PII]: Moxifloxacine 400 mg 1-0-0Pyrazinamide 500 mg 3-0-0strptomycine 1 g     1-0-0 
+
+[92] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : jun 2010
+    Contexte   : ffects, missmaneged some drug after 8 months) Problem of today:I did CT scan in [PII] and it looks stable... After 6 months in 4 jan 2011, I did again one CT scan an
+
+[93] ID       : dpo_validation_de561e311dd7bd86
+    Ligne      : 613
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : jan 2011
+    Contexte   : m of today:I did CT scan in jun 2010 and it looks stable... After 6 months in 4 [PII], I did again one CT scan and on left side of lung, the is very little growth of
+
+[94] ID       : dpo_validation_927ef0ebd6697a83
+    Ligne      : 760
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 83414
+    Contexte   : d risk of lung cancer: a systematic review and meta-analysis. PLoS One, 8(12), e[PII].
+9. Sørensen et al. (2004). GSTP1 Ile105Val polymorphism and lung cancer risk: 
+
+[95] ID       : dpo_validation_927ef0ebd6697a83
+    Ligne      : 760
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 51313
+    Contexte   : Ala114Val polymorphism and lung cancer risk: a meta-analysis. PLoS One, 7(12), e[PII].
+12. Yuan et al. (2003). Interaction between beta-carotene and GSTP1 Ile105Val 
+
+[96] ID       : dpo_validation_927ef0ebd6697a83
+    Ligne      : 760
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 83414
+    Contexte   : d risk of lung cancer: a systematic review and meta-analysis. PLoS One, 8(12), e[PII].
+9. Sørensen et al. (2004). GSTP1 Ile105Val polymorphism and lung cancer risk: 
+
+[97] ID       : dpo_validation_927ef0ebd6697a83
+    Ligne      : 760
+    Type       : french_postal_code
+    Champ      : chosen[1].content
+    Match      : 51313
+    Contexte   : Ala114Val polymorphism and lung cancer risk: a meta-analysis. PLoS One, 7(12), e[PII].
+12. Yuan et al. (2003). Interaction between beta-carotene and GSTP1 Ile105Val 
+
+[98] ID       : dpo_validation_67cbb77ac5299079
+    Ligne      : 853
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : September 2007
+    Contexte   : Ectopic ACTH is commonly secreted by: [PII]
+
+A. Small cell carcinoma of the lungs
+B. Pancreatic carcinoma
+C. Gall bladder m
+
+[99] ID       : dpo_validation_67cbb77ac5299079
+    Ligne      : 853
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : September 2007
+    Contexte   : Ectopic ACTH is commonly secreted by: [PII]
+
+A. Small cell carcinoma of the lungs
+B. Pancreatic carcinoma
+C. Gall bladder m
+
+[100] ID       : dpo_validation_67cbb77ac5299079
+    Ligne      : 853
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : September 2007
+    Contexte   : Ectopic ACTH is commonly secreted by: [PII]
+
+A. Small cell carcinoma of the lungs
+B. Pancreatic carcinoma
+C. Gall bladder m
+
+[101] ID       : dpo_validation_d8b95e9336c70be0
+    Ligne      : 865
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : April 2010
+    Contexte   : Hi, I just turned 56, I had triple bypass in [PII] in a German hospital. 2 months later back in the States I had chest pain again,
+
+[102] ID       : dpo_validation_d8b95e9336c70be0
+    Ligne      : 865
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : April 2010
+    Contexte   : Hi, I just turned 56, I had triple bypass in [PII] in a German hospital. 2 months later back in the States I had chest pain again,
+
+[103] ID       : dpo_validation_d8b95e9336c70be0
+    Ligne      : 865
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : April 2010
+    Contexte   : Hi, I just turned 56, I had triple bypass in [PII] in a German hospital. 2 months later back in the States I had chest pain again,
+
+[104] ID       : dpo_validation_756265bce4538423
+    Ligne      : 886
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : may 2007
+    Contexte   : I am 36 years old, got marred in [PII], i was conceived 2yrs ago(under doctor s medication ), and due to embronic demi
+
+[105] ID       : dpo_validation_756265bce4538423
+    Ligne      : 886
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : may 2007
+    Contexte   : I am 36 years old, got marred in [PII], i was conceived 2yrs ago(under doctor s medication ), and due to embronic demi
+
+[106] ID       : dpo_validation_756265bce4538423
+    Ligne      : 886
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : may 2007
+    Contexte   : I am 36 years old, got marred in [PII], i was conceived 2yrs ago(under doctor s medication ), and due to embronic demi
+
+[107] ID       : dpo_validation_535bbf74a5d26a0d
+    Ligne      : 915
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 01294
+    Contexte   : stone methyltransferase EZH2, which is overexpressed in various cancers.
+2. BIX-[PII]: A HMT inhibitor that has been shown to inhibit the activity of histone methylt
+
+[108] ID       : dpo_validation_535bbf74a5d26a0d
+    Ligne      : 915
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 01294
+    Contexte   : stone methyltransferase EZH2, which is overexpressed in various cancers.
+2. BIX-[PII]: A HMT inhibitor that has been shown to inhibit the activity of histone methylt
+
+[109] ID       : dpo_validation_416db7df6a3c239a
+    Ligne      : 927
+    Type       : url
+    Champ      : chosen[1].content
+    Match      : www.clinicaltrials.gov](http://www.clinicaltrials.gov))
+    Contexte   : can:
+
+* Visit the National Institutes of Health (NIH) Clinical Trials website ([[PII] and search for "periventricular leukomalacia" or "PVL."
+* Explore the websites 
+
+[110] ID       : dpo_validation_b887d4e5dff48862
+    Ligne      : 937
+    Type       : date_numeric
+    Champ      : chosen[1].content
+    Match      : 1/6/10
+    Contexte   : s, suggesting a beneficial contribution to our immunological defenses.
+
+3. **TLR[PII] Cluster**: These toll-like receptor genes play a role in innate immunity. Diffe
+
+
+### rewardbench — 108 matchs
+
+[1] ID       : rewardbench_99f27baec4d8dc6a
+    Ligne      : 5
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : May 2012
+    Contexte   : My wife aged 33 ..had high BP during [PII] and as per family doctor s advise she took Envas2.5mg (one time in the morning)
+
+[2] ID       : rewardbench_99f27baec4d8dc6a
+    Ligne      : 5
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : May 2012
+    Contexte   : My wife aged 33 ..had high BP during [PII] and as per family doctor s advise she took Envas2.5mg (one time in the morning)
+
+[3] ID       : rewardbench_99f27baec4d8dc6a
+    Ligne      : 5
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : May 2012
+    Contexte   : My wife aged 33 ..had high BP during [PII] and as per family doctor s advise she took Envas2.5mg (one time in the morning)
+
+[4] ID       : rewardbench_b28a3b0ac3623a3b
+    Ligne      : 19
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : jul 2007
+    Contexte   : with a case of carcinoma left breast. masectomy in 2004, axillary dissection in [PII] ,  6 cycles chemotherapy, 25 cycles radiotherapy taking letrozone 2.5mg harmone
+
+[5] ID       : rewardbench_b28a3b0ac3623a3b
+    Ligne      : 19
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : jul 2007
+    Contexte   : with a case of carcinoma left breast. masectomy in 2004, axillary dissection in [PII] ,  6 cycles chemotherapy, 25 cycles radiotherapy taking letrozone 2.5mg harmone
+
+[6] ID       : rewardbench_b28a3b0ac3623a3b
+    Ligne      : 19
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : jul 2007
+    Contexte   : with a case of carcinoma left breast. masectomy in 2004, axillary dissection in [PII] ,  6 cycles chemotherapy, 25 cycles radiotherapy taking letrozone 2.5mg harmone
+
+[7] ID       : rewardbench_d02b0f6533cfc656
+    Ligne      : 30
+    Type       : email
+    Champ      : prompt
+    Match      : royabhijity2k@yahoo.co.in
+    Contexte   :  May I request you to send report by diagonising to the undersigned thru mail : [PII] Alokananda Sen (husband)
+
+[8] ID       : rewardbench_d02b0f6533cfc656
+    Ligne      : 30
+    Type       : email
+    Champ      : chosen[0].content
+    Match      : royabhijity2k@yahoo.co.in
+    Contexte   :  May I request you to send report by diagonising to the undersigned thru mail : [PII] Alokananda Sen (husband)
+
+[9] ID       : rewardbench_d02b0f6533cfc656
+    Ligne      : 30
+    Type       : email
+    Champ      : rejected[0].content
+    Match      : royabhijity2k@yahoo.co.in
+    Contexte   :  May I request you to send report by diagonising to the undersigned thru mail : [PII] Alokananda Sen (husband)
+
+[10] ID       : rewardbench_d02b0f6533cfc656
+    Ligne      : 30
+    Type       : email
+    Champ      : rejected[1].content
+    Match      : royabhijity2k@yahoo.co.in
+    Contexte   :  of the brain of Smt. Bisakha Sen, aged 57 years, to be sent to me via email at [PII]. The scan revealed a well-defined hypodense area in the right postero-superior 
+
+[11] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 04-07-12
+    Contexte   : ized for typhoid fever was admitted in hospital for 5 days. I got discharged on [PII]. I felt I am fine. But from 29-07-12 I am feeling I have fever again. Doc advis
+
+[12] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : prompt
+    Match      : 29-07-12
+    Contexte   : n hospital for 5 days. I got discharged on 04-07-12. I felt I am fine. But from [PII] I am feeling I have fever again. Doc advised me to have normal veg food. I was 
+
+[13] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 04-07-12
+    Contexte   : ized for typhoid fever was admitted in hospital for 5 days. I got discharged on [PII]. I felt I am fine. But from 29-07-12 I am feeling I have fever again. Doc advis
+
+[14] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : chosen[0].content
+    Match      : 29-07-12
+    Contexte   : n hospital for 5 days. I got discharged on 04-07-12. I felt I am fine. But from [PII] I am feeling I have fever again. Doc advised me to have normal veg food. I was 
+
+[15] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 04-07-12
+    Contexte   : ized for typhoid fever was admitted in hospital for 5 days. I got discharged on [PII]. I felt I am fine. But from 29-07-12 I am feeling I have fever again. Doc advis
+
+[16] ID       : rewardbench_4fdda3e88dc92269
+    Ligne      : 67
+    Type       : date_numeric
+    Champ      : rejected[0].content
+    Match      : 29-07-12
+    Contexte   : n hospital for 5 days. I got discharged on 04-07-12. I felt I am fine. But from [PII] I am feeling I have fever again. Doc advised me to have normal veg food. I was 
+
+[17] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : DEC 2013
+    Contexte   : doctor i had intercourse with my husband so many times but last was in month of [PII], after that i got periods on 9th Jan 2014 doctor suggested me to take tables to
+
+[18] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Jan 2014
+    Contexte   : o many times but last was in month of DEC 2013, after that i got periods on 9th [PII] doctor suggested me to take tables to continue tablets for regularity of period
+
+[19] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : DEC 2013
+    Contexte   : doctor i had intercourse with my husband so many times but last was in month of [PII], after that i got periods on 9th Jan 2014 doctor suggested me to take tables to
+
+[20] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Jan 2014
+    Contexte   : o many times but last was in month of DEC 2013, after that i got periods on 9th [PII] doctor suggested me to take tables to continue tablets for regularity of period
+
+[21] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : December 2013
+    Contexte   : derstanding your situation:**
+
+1. You had intercourse with your husband last in [PII].
+2. You got your periods on January 9th, 2014.
+3. Your doctor prescribed tablet
+
+[22] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : December 2013
+    Contexte   : effectiveness.
+4. **Lack of intercourse:** If you haven't had intercourse since [PII], it's unlikely that you'll get pregnant without resuming sexual activity.
+
+**Re
+
+[23] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : DEC 2013
+    Contexte   : doctor i had intercourse with my husband so many times but last was in month of [PII], after that i got periods on 9th Jan 2014 doctor suggested me to take tables to
+
+[24] ID       : rewardbench_1677d2d9152a336c
+    Ligne      : 75
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Jan 2014
+    Contexte   : o many times but last was in month of DEC 2013, after that i got periods on 9th [PII] doctor suggested me to take tables to continue tablets for regularity of period
+
+[25] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[26] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[27] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[28] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[29] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[30] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[31] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[32] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[33] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[34] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[35] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 81000
+    Contexte   :  G0431. Can you give me the cpt exact wording for that code. I am familiar with [PII] to 81003 etc, but do not have my cpt book here to read description. Also how do
+
+[36] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 81003
+    Contexte   : an you give me the cpt exact wording for that code. I am familiar with 81000 to [PII] etc, but do not have my cpt book here to read description. Also how does it wor
+
+[37] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 81000
+    Contexte   : erforms a urine analysis (UA) in-house, it's typically reported using CPT codes [PII] to 81003, as you mentioned. However, if the doctor's office sends the urine sam
+
+[38] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 81003
+    Contexte   :  urine analysis (UA) in-house, it's typically reported using CPT codes 81000 to [PII], as you mentioned. However, if the doctor's office sends the urine sample to a 
+
+[39] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 85650
+    Contexte   : ine sample to a laboratory for analysis, they may use a different code, such as [PII] (Urine analysis, comprehensive, including microscopic examination).
+
+In your ca
+
+[40] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 85650
+    Contexte   : t the urine sample to a lab for interpretation, it's likely that they used code [PII] or a similar code to report the test.
+
+**Methamphetamine result**
+
+Regarding th
+
+[41] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 81000
+    Contexte   : erforms a urine analysis (UA) in-house, it's typically reported using CPT codes [PII] to 81003, as you mentioned. However, if the doctor's office sends the urine sam
+
+[42] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 81003
+    Contexte   :  urine analysis (UA) in-house, it's typically reported using CPT codes 81000 to [PII], as you mentioned. However, if the doctor's office sends the urine sample to a 
+
+[43] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 85650
+    Contexte   : ine sample to a laboratory for analysis, they may use a different code, such as [PII] (Urine analysis, comprehensive, including microscopic examination).
+
+In your ca
+
+[44] ID       : rewardbench_e2b708dfe08961a5
+    Ligne      : 270
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 85650
+    Contexte   : t the urine sample to a lab for interpretation, it's likely that they used code [PII] or a similar code to report the test.
+
+**Methamphetamine result**
+
+Regarding th
+
+[45] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : june 2011
+    Contexte   :  mrs.mulla, i had an ectopic pregnancy in my left Fallopian tube last year 29th [PII] and had got very bad pains and i was hospitalized for 2 days the day i was admi
+
+[46] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : july 2011
+    Contexte   :  i live in UAE that day itself i took discharge i flew back to india and on 5th [PII] i got my periods normally there also they checked b-ChatDoctor had fallen total
+
+[47] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : July 2012
+    Contexte   : go further and come when i am pregnant but no medicians nothing is given on 1th [PII] i had my periods and there after we are trying and had intercourse but now from
+
+[48] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : june 2011
+    Contexte   :  mrs.mulla, i had an ectopic pregnancy in my left Fallopian tube last year 29th [PII] and had got very bad pains and i was hospitalized for 2 days the day i was admi
+
+[49] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : july 2011
+    Contexte   :  i live in UAE that day itself i took discharge i flew back to india and on 5th [PII] i got my periods normally there also they checked b-ChatDoctor had fallen total
+
+[50] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : July 2012
+    Contexte   : go further and come when i am pregnant but no medicians nothing is given on 1th [PII] i had my periods and there after we are trying and had intercourse but now from
+
+[51] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : june 2011
+    Contexte   :  mrs.mulla, i had an ectopic pregnancy in my left Fallopian tube last year 29th [PII] and had got very bad pains and i was hospitalized for 2 days the day i was admi
+
+[52] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : july 2011
+    Contexte   :  i live in UAE that day itself i took discharge i flew back to india and on 5th [PII] i got my periods normally there also they checked b-ChatDoctor had fallen total
+
+[53] ID       : rewardbench_de82ec9f6cafed84
+    Ligne      : 307
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : July 2012
+    Contexte   : go further and come when i am pregnant but no medicians nothing is given on 1th [PII] i had my periods and there after we are trying and had intercourse but now from
+
+[54] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Dec 2010
+    Contexte   : ting better. First ill signs Oct 2010Really ill - could walk around house early [PII]. Cancer check Jan/feb 2010 Second urology appointment due 24th Feb 2010 regards
+
+[55] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : feb 2010
+    Contexte   : s Oct 2010Really ill - could walk around house early Dec 2010. Cancer check Jan/[PII] Second urology appointment due 24th Feb 2010 regards
+
+[56] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : Feb 2010
+    Contexte   : e early Dec 2010. Cancer check Jan/feb 2010 Second urology appointment due 24th [PII] regards
+
+[57] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Dec 2010
+    Contexte   : ting better. First ill signs Oct 2010Really ill - could walk around house early [PII]. Cancer check Jan/feb 2010 Second urology appointment due 24th Feb 2010 regards
+
+[58] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : feb 2010
+    Contexte   : s Oct 2010Really ill - could walk around house early Dec 2010. Cancer check Jan/[PII] Second urology appointment due 24th Feb 2010 regards
+
+[59] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : Feb 2010
+    Contexte   : e early Dec 2010. Cancer check Jan/feb 2010 Second urology appointment due 24th [PII] regards
+
+[60] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Dec 2010
+    Contexte   : ting better. First ill signs Oct 2010Really ill - could walk around house early [PII]. Cancer check Jan/feb 2010 Second urology appointment due 24th Feb 2010 regards
+
+[61] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : feb 2010
+    Contexte   : s Oct 2010Really ill - could walk around house early Dec 2010. Cancer check Jan/[PII] Second urology appointment due 24th Feb 2010 regards
+
+[62] ID       : rewardbench_9b4a0915a696175a
+    Ligne      : 321
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : Feb 2010
+    Contexte   : e early Dec 2010. Cancer check Jan/feb 2010 Second urology appointment due 24th [PII] regards
+
+[63] ID       : rewardbench_09499bb13742b70d
+    Ligne      : 325
+    Type       : date_month_year
+    Champ      : chosen[1].content
+    Match      : Feb 2013
+    Contexte   : no other symptoms of PCOS were present.
+4. Cervicitis: You underwent cautery in [PII] and are currently taking Bactrium DS and probiotic tablets.
+
+Now, let's analyze
+
+[64] ID       : rewardbench_a9c2ba5ee03c0d76
+    Ligne      : 389
+    Type       : date_month_year
+    Champ      : prompt
+    Match      : December 2019
+    Contexte   : ome coronavirus 2 (SARS-CoV-2), first became evident in Wuhan, Hubei, China, in [PII].
+
+[65] ID       : rewardbench_a9c2ba5ee03c0d76
+    Ligne      : 389
+    Type       : date_month_year
+    Champ      : chosen[0].content
+    Match      : December 2019
+    Contexte   : ome coronavirus 2 (SARS-CoV-2), first became evident in Wuhan, Hubei, China, in [PII].
+
+[66] ID       : rewardbench_a9c2ba5ee03c0d76
+    Ligne      : 389
+    Type       : date_month_year
+    Champ      : rejected[0].content
+    Match      : December 2019
+    Contexte   : ome coronavirus 2 (SARS-CoV-2), first became evident in Wuhan, Hubei, China, in [PII].
+
+[67] ID       : rewardbench_a9c2ba5ee03c0d76
+    Ligne      : 389
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : December 2019
+    Contexte   : a new type of virus called SARS-CoV-2, was first identified in Wuhan, China, in [PII]. This virus can cause serious lung problems and has spread around the world.
+
+[68] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports
+    Contexte   :  Health Organization. Coronavirus disease (COVID-19) situation reports. (2021). [PII]
+2. Centers for Disease Control and Prevention. SARS-CoV-2 variants. (2021). htt
+
+[69] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-info.html
+    Contexte   : rts
+2. Centers for Disease Control and Prevention. SARS-CoV-2 variants. (2021). [PII]
+3. BBC News. COVID: Delta variant ‘now dominant strain’ in UK, says health secr
+
+[70] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.bbc.com/news/uk-57312848
+    Contexte   : OVID: Delta variant ‘now dominant strain’ in UK, says health secretary. (2021). [PII]
+4. World Health Organization. COVID-19 vaccine equity: A call for urgent action
+
+[71] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.who.int/publications/i/item/covid-19-vaccine-equity-a-call-for-urgent-action
+    Contexte   : Health Organization. COVID-19 vaccine equity: A call for urgent action. (2021). [PII]
+5. The Lancet. COVID-19 vaccine hesitancy: The urgent need for action. (2021). 
+
+[72] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : url
+    Champ      : rejected[1].content
+    Match      : https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)00874-8/fulltext
+    Contexte   : 
+5. The Lancet. COVID-19 vaccine hesitancy: The urgent need for action. (2021). [PII]
+
+[73] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : June 2021
+    Contexte   : y, and challenges in vaccine distribution.
+
+Total Cases and Death Rates:
+
+As of [PII], the World Health Organization (WHO) reported over 173 million confirmed cases 
+
+[74] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : date_month_year
+    Champ      : rejected[1].content
+    Match      : June 2021
+    Contexte   : lizations and reduced vaccine effectiveness (3).
+
+Vaccines Availability:
+
+As of [PII], over 2.5 billion vaccine doses have been administered globally. However, there
+
+[75] ID       : rewardbench_ee6272085abc175d
+    Ligne      : 430
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 00874
+    Contexte   : ion. (2021). https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)[PII]-8/fulltext
+
+[76] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[77] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[78] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[79] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[80] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[81] ID       : rewardbench_cd9fedabed5dee59
+    Ligne      : 612
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 12000
+    Contexte   : dge is collapsed. Laboratory studies show:
+Hemoglobin 11.3 g/dL
+Leukocyte count [PII]/mm3
+Platelet count 270,000/mm3
+ESR 55 mm/hr
+Serum
+Urea nitrogen 28 mg/dL
+Creati
+
+[82] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 00008
+    Contexte   : ity of getting both a urinary tract infection and a deep venous thrombosis is 0.[PII] in patients undergoing routine total knee replacement. Furthermore, they estima
+
+[83] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 00002
+    Contexte   : s thrombosis following total knee replacement?
+
+A. 0.02
+B. 0.002
+C. 0.0002
+D. 0.[PII]
+
+[84] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 00008
+    Contexte   : ity of getting both a urinary tract infection and a deep venous thrombosis is 0.[PII] in patients undergoing routine total knee replacement. Furthermore, they estima
+
+[85] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 00002
+    Contexte   : s thrombosis following total knee replacement?
+
+A. 0.02
+B. 0.002
+C. 0.0002
+D. 0.[PII]
+
+[86] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00008
+    Contexte   : ng both a urinary tract infection (UTI) and a deep venous thrombosis (DVT) as 0.[PII].
+
+We are also given the probability of getting a UTI as 0.04.
+
+We need to find 
+
+[87] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00008
+    Contexte   : ng a UTI as U and the event of getting a DVT as D.
+
+We are given P(U and D) = 0.[PII] and P(U) = 0.04.
+
+We need to find P(D).
+
+Using the formula for conditional prob
+
+[88] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00008
+    Contexte   : uation as:
+
+P(U and D) = P(U) × P(D)
+
+Substituting the given values, we get:
+
+0.[PII] = 0.04 × P(D)
+
+Now, we can solve for P(D):
+
+P(D) = 0.00008 / 0.04
+= 0.002
+
+So, 
+
+[89] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : chosen[1].content
+    Match      : 00008
+    Contexte   : n values, we get:
+
+0.00008 = 0.04 × P(D)
+
+Now, we can solve for P(D):
+
+P(D) = 0.[PII] / 0.04
+= 0.002
+
+So, the answer is B.
+
+[90] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 00008
+    Contexte   : ity of getting both a urinary tract infection and a deep venous thrombosis is 0.[PII] in patients undergoing routine total knee replacement. Furthermore, they estima
+
+[91] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 00002
+    Contexte   : s thrombosis following total knee replacement?
+
+A. 0.02
+B. 0.002
+C. 0.0002
+D. 0.[PII]
+
+[92] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 00008
+    Contexte   : 
+
+The probability of getting both a UTI and a deep venous thrombosis (DVT) is 0.[PII].
+
+We are also given that the development of UTIs and DVTs are independent, whic
+
+[93] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 00008
+    Contexte   : ability of getting a UTI = 0.04
+Probability of getting both a UTI and a DVT = 0.[PII]
+
+To find the probability of getting a DVT, we subtract the probability of getti
+
+[94] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 00008
+    Contexte   : ility of getting a UTI - Probability of getting both a UTI and a DVT
+= 0.04 - 0.[PII]
+= 0.03992
+
+So, the answer is B.
+
+[95] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : us_zip_code
+    Champ      : rejected[1].content
+    Match      : 03992
+    Contexte   : etting a UTI - Probability of getting both a UTI and a DVT
+= 0.04 - 0.00008
+= 0.[PII]
+
+So, the answer is B.
+
+[96] ID       : rewardbench_66f8438b265dda76
+    Ligne      : 658
+    Type       : french_postal_code
+    Champ      : rejected[1].content
+    Match      : 03992
+    Contexte   : etting a UTI - Probability of getting both a UTI and a DVT
+= 0.04 - 0.00008
+= 0.[PII]
+
+So, the answer is B.
+
+[97] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[98] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : prompt
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+[99] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[100] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : prompt
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+[101] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[102] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : chosen[0].content
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+[103] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[104] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : chosen[0].content
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+[105] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[106] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : us_zip_code
+    Champ      : rejected[0].content
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+[107] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 33388
+    Contexte   : lyzed polymorphisms of GR gene (rs10052957, rs6196, rs6198, rs6191, rs258813, rs[PII], rs6195, rs41423247) were established by TaqMan SNP Genotyping Assays. Statisti
+
+[108] ID       : rewardbench_6afe86f160ff5f48
+    Ligne      : 660
+    Type       : french_postal_code
+    Champ      : rejected[0].content
+    Match      : 33388
+    Contexte   : ge disequilibrium of five GR polymorphisms (rs6198, rs6191, rs6196, rs258813, rs[PII]), with TAAGA haplotype more prevalent in the group of partial- and non-responde
+
+================================================================================
+CONCLUSION
+================================================================================
+
+111 records présentent au moins une alerte regex PII.
+576 matchs ont été détectés.
+
+Les identifiants techniques ne sont pas inclus dans cette analyse.
+Les codes postaux et les dates doivent être interprétés dans leur contexte avant anonymisation.
+Les emails et numéros de téléphone constituent les alertes à examiner prioritairement.
+
+Ce rapport ne constitue pas une validation juridique ou clinique de l'absence de PII.

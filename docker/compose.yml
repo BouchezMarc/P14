@@ -1,0 +1,61 @@
+services:
+
+  p14-vllm:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    image: p14-vllm:local
+
+    command:
+      - Qwen/Qwen3-1.7B-Base
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --enable-lora
+      - --max-lora-rank
+      - "16"
+      - --lora-modules
+      - dpo_v3=/models/dpo_v3
+
+    volumes:
+      - ../models:/models:ro
+      - huggingface-cache:/root/.cache/huggingface
+
+    environment:
+      - HF_HOME=/root/.cache/huggingface
+
+    expose:
+      - "8000"
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    ipc: host
+
+
+  p14-api:
+    build:
+      context: ..
+      dockerfile: docker/api.Dockerfile
+
+    image: p14-api:local
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      - VLLM_URL=http://p14-vllm:8000
+
+    depends_on:
+      - p14-vllm
+
+
+volumes:
+  huggingface-cache:

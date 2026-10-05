@@ -1,0 +1,26 @@
+{
+  "model_type": "dpo",
+  "base_model": "Qwen/Qwen3-1.7B-Base",
+  "adapter": "models\\dpo_v1\\checkpoint-625",
+  "test": {
+    "file": "data\\processed\\sft_test.jsonl",
+    "examples": 500
+  },
+  "generation": {
+    "max_seq_length": 2048,
+    "max_new_tokens": 256,
+    "batch_size": 4,
+    "do_sample": false
+  },
+  "performance": {
+    "generation_time_seconds": 769.4230034999782,
+    "generation_time_minutes": 12.823716724999636,
+    "examples_per_second": 0.649837602626361,
+    "mean_generated_tokens": 131.168,
+    "total_generated_tokens": 65584
+  },
+  "metrics": {
+    "token_f1": 0.3882214095010236,
+    "exact_match": 0.01
+  }
+}

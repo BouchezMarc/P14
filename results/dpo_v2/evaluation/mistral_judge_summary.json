@@ -1,0 +1,32 @@
+{
+  "examples": 100,
+  "judge_model": "ministral-14b-2512",
+  "criteria": {
+    "faithfulness": 1.98,
+    "answer_relevancy": 2.95,
+    "correctness": 2.14,
+    "completeness": 1.7,
+    "overall": 2.192
+  },
+  "by_language": {
+    "en": {
+      "examples": 34,
+      "faithfulness": 2.559,
+      "answer_relevancy": 3.353,
+      "correctness": 2.735,
+      "completeness": 1.912,
+      "overall": 2.64
+    },
+    "fr": {
+      "examples": 66,
+      "faithfulness": 1.682,
+      "answer_relevancy": 2.742,
+      "correctness": 1.833,
+      "completeness": 1.591,
+      "overall": 1.962
+    }
+  },
+  "source_file": "results\\dpo_v2\\predictions.jsonl",
+  "output_file": "results\\dpo_v2\\evaluation\\mistral_judge_predictions.jsonl",
+  "errors": []
+}

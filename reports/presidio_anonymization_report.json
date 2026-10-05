@@ -1,0 +1,68 @@
+{
+  "report_version": "presidio_dpo_v1",
+  "strategy": "replace",
+  "protected_fields": [
+    "id",
+    "provenance",
+    "provenance.dpo_split",
+    "provenance.processing_version",
+    "provenance.source_id",
+    "quality",
+    "quality.clinical_validation_status",
+    "quality.clinically_validated",
+    "quality.preference_valid",
+    "source",
+    "source.dataset",
+    "source.label_type",
+    "source.split"
+  ],
+  "summary": {
+    "total_records": 6776,
+    "records_anonymized": 4219,
+    "total_entities_detected": 22384
+  },
+  "entities": {
+    "PERSON": 16352,
+    "LOCATION": 5967,
+    "PHONE_NUMBER": 60,
+    "EMAIL_ADDRESS": 4,
+    "IP_ADDRESS": 1
+  },
+  "datasets": [
+    {
+      "input": "data\\processed\\dpo_dataset_v2\\dpo_train.jsonl",
+      "output": "data\\processed\\dpo_dataset_v2\\anonymized\\dpo_train.jsonl",
+      "total_records": 5000,
+      "records_anonymized": 3131,
+      "entities": {
+        "PERSON": 12097,
+        "LOCATION": 4357,
+        "PHONE_NUMBER": 51
+      }
+    },
+    {
+      "input": "data\\processed\\dpo_dataset_v2\\dpo_validation.jsonl",
+      "output": "data\\processed\\dpo_dataset_v2\\anonymized\\dpo_validation.jsonl",
+      "total_records": 1000,
+      "records_anonymized": 629,
+      "entities": {
+        "PERSON": 2515,
+        "LOCATION": 778,
+        "IP_ADDRESS": 1,
+        "PHONE_NUMBER": 2
+      }
+    },
+    {
+      "input": "data\\processed\\dpo_dataset_v2\\medical_rewardbench.jsonl",
+      "output": "data\\processed\\dpo_dataset_v2\\anonymized\\medical_rewardbench.jsonl",
+      "total_records": 776,
+      "records_anonymized": 459,
+      "entities": {
+        "PERSON": 1740,
+        "LOCATION": 832,
+        "EMAIL_ADDRESS": 4,
+        "PHONE_NUMBER": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "examples": 100,
+  "judge_model": "ministral-14b-2512",
+  "criteria": {
+    "faithfulness": 0.68,
+    "answer_relevancy": 1.4,
+    "correctness": 0.75,
+    "completeness": 0.57,
+    "overall": 0.85
+  },
+  "by_language": {
+    "en": {
+      "examples": 100,
+      "faithfulness": 0.68,
+      "answer_relevancy": 1.4,
+      "correctness": 0.75,
+      "completeness": 0.57,
+      "overall": 0.85
+    }
+  },
+  "source_file": "C:\\01_partage_syncthing\\openclasserooms\\projets\\projet14\\results\\sft_v2\\predictions.jsonl",
+  "output_file": "C:\\01_partage_syncthing\\openclasserooms\\projets\\projet14\\results\\sft_v2\\evaluation\\mistral_judge_predictions.jsonl",
+  "errors": []
+}

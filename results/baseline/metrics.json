@@ -1,0 +1,29 @@
+{
+  "model": "Qwen/Qwen3-1.7B-Base",
+  "dataset": "data\\processed\\sft_test.jsonl",
+  "num_examples": 500,
+  "evaluation_type": "pre_sft_baseline",
+  "prompt_format": "Question:\\n{instruction}\\n\\nAnswer:\\n",
+  "generation": {
+    "max_new_tokens": 256,
+    "max_input_tokens": 1024,
+    "do_sample": false,
+    "torch_dtype": "torch.bfloat16"
+  },
+  "global": {
+    "token_f1": 0.2843322815884598,
+    "exact_match": 0.0
+  },
+  "by_language": {
+    "en": {
+      "count": 500,
+      "token_f1": 0.2843322815884598,
+      "exact_match": 0.0
+    }
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "cuda": "13.0",
+    "pytorch": "2.12.1+cu130"
+  }
+}

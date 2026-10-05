@@ -1,0 +1,26 @@
+{
+  "model_type": "sft",
+  "base_model": "Qwen/Qwen3-1.7B-Base",
+  "adapter": "models\\sft_v3",
+  "test": {
+    "file": "data\\processed\\sft_test.jsonl",
+    "examples": 500
+  },
+  "generation": {
+    "max_seq_length": 2048,
+    "max_new_tokens": 256,
+    "batch_size": 4,
+    "do_sample": false
+  },
+  "performance": {
+    "generation_time_seconds": 1509.250960699981,
+    "generation_time_minutes": 25.15418267833302,
+    "examples_per_second": 0.3312901651346991,
+    "mean_generated_tokens": 253.928,
+    "total_generated_tokens": 126964
+  },
+  "metrics": {
+    "token_f1": 0.2677530048494855,
+    "exact_match": 0.008
+  }
+}

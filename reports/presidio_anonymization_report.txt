@@ -1,0 +1,62 @@
+================================================================================
+RAPPORT D'ANONYMISATION PRESIDIO
+================================================================================
+
+Stratégie : replace
+
+=== SYNTHÈSE ===
+
+Records traités       : 6776
+Records anonymisés    : 4219
+Entités détectées     : 22384
+
+=== ENTITÉS DÉTECTÉES ===
+
+PERSON                         16352
+LOCATION                       5967
+PHONE_NUMBER                   60
+EMAIL_ADDRESS                  4
+IP_ADDRESS                     1
+
+=== PAR DATASET ===
+
+[dpo_train.jsonl]
+  Records       : 5000
+  Anonymisés    : 3131
+    - PERSON                    12097
+    - LOCATION                  4357
+    - PHONE_NUMBER              51
+
+[dpo_validation.jsonl]
+  Records       : 1000
+  Anonymisés    : 629
+    - PERSON                    2515
+    - LOCATION                  778
+    - PHONE_NUMBER              2
+    - IP_ADDRESS                1
+
+[medical_rewardbench.jsonl]
+  Records       : 776
+  Anonymisés    : 459
+    - PERSON                    1740
+    - LOCATION                  832
+    - PHONE_NUMBER              7
+    - EMAIL_ADDRESS             4
+
+=== CHAMPS PROTÉGÉS ===
+
+- id
+- provenance
+- provenance.dpo_split
+- provenance.processing_version
+- provenance.source_id
+- quality
+- quality.clinical_validation_status
+- quality.clinically_validated
+- quality.preference_valid
+- source
+- source.dataset
+- source.label_type
+- source.split
+
+Les fichiers sources n'ont pas été modifiés.

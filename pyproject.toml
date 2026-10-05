@@ -1,0 +1,33 @@
+[project]
+name = "projet14"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "accelerate>=1.15.0",
+    "bitsandbytes>=0.50.2",
+    "datasets>=4.1.0,<4.4.0",
+    "mlflow>=3.4.0",
+    "peft>=0.21.0",
+    "presidio-analyzer>=2.2.364",
+    "presidio-anonymizer>=2.2.364",
+    "safetensors>=0.8.0",
+    "torch==2.12.1+cu130",
+    "torchvision==0.27.1+cu130",
+    "torchaudio==2.11.0+cu130",
+    "transformers<=5.5.0",
+    "trl==0.24.0",
+    "unsloth==2026.9.10",
+    "mistralai>=3.0.0",
+    "python-dotenv>=1.2.3",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }
+torchaudio = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
