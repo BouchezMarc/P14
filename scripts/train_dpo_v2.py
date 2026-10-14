@@ -82,7 +82,7 @@ VALIDATION_FILE = Path(
     "data/processed/dataset_dpo_v2/anonymized/dpo_validation.jsonl"
 )
 
-OUTPUT_DIR = Path("models/dpo_v7")
+OUTPUT_DIR = Path("models/dpo_v10")
 
 MAX_LENGTH = 2048
 

@@ -69,8 +69,8 @@ tensorboard/
 runs/
 mlflow.db
 
-# Training checkpoints
-
+# Training checkpoints et autres
+deployment/
 models/**/checkpoint-*/
 unsloth_compiled_cache/
 
@@ -81,6 +81,8 @@ models/dpo_v4/
 models/dpo_v5/
 models/dpo_v6/
 models/dpo_v7/
+models/dpo_v9/
+models/dpo_v10/
 
 models/sft_v1/
 models/sft_v2/
@@ -91,6 +93,9 @@ models/sft_v7/
 models/sft_v9/
 models/sft_v10/
 models/sft_8/
+models/final_model/
+models/final_model_dpo_v8/
+results/training_curves/
 
 
 

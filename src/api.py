@@ -4,8 +4,13 @@ import os
 import time
 import uuid
 import requests
+from typing import Literal
 
-VLLM_URL = os.getenv("VLLM_URL", "http://p14-vllm:8000")
+# VLLM_URL = os.getenv("VLLM_URL", "http://p14-vllm:8000")
+
+VLLM_URL = os.getenv("VLLM_URL", "http://127.0.0.1:8000")
+MODEL_NAME = os.getenv("MODEL_NAME", "dpo_v8")
+
 
 app = FastAPI(
     title="P14 Medical AI API",
@@ -26,6 +31,25 @@ class TriageResponse(BaseModel):
     latency_ms: float
 
 
+class RewardBenchMessage(BaseModel):
+    role: str
+    content: str
+
+
+class CompareRequest(BaseModel):
+    prompt: str
+    chosen: list[RewardBenchMessage]
+    rejected: list[RewardBenchMessage]
+
+
+class CompareResponse(BaseModel):
+    request_id: str
+    model: str
+    chosen_score: float
+    rejected_score: float
+    preferred: Literal["chosen", "rejected", "tie"]
+    latency_ms: float
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -35,13 +59,15 @@ def health():
 def version():
     return {
         "api_version": app.version,
-        "model": "dpo_v3",
+        "model": MODEL_NAME,
     }
 
 
 @app.post("/api/v1/triage", response_model=TriageResponse)
 def triage(request: TriageRequest):
     request_id = str(uuid.uuid4())
+
+    # Début de mesure du temps de réponse total
     start = time.perf_counter()
 
     prompt = (
@@ -51,7 +77,7 @@ def triage(request: TriageRequest):
     )
 
     payload = {
-        "model": "dpo_v3",
+        "model": MODEL_NAME,
         "prompt": prompt,
         "max_tokens": request.max_tokens,
         "temperature": request.temperature,
@@ -65,17 +91,150 @@ def triage(request: TriageRequest):
         )
         response.raise_for_status()
     except requests.RequestException as exc:
+        latency_ms = (time.perf_counter() - start) * 1000
+
         raise HTTPException(
             status_code=502,
-            detail=f"vLLM unavailable: {exc}",
+            detail={
+                "error": f"vLLM unavailable: {exc}",
+                "latency_ms": round(latency_ms, 2),
+            },
         )
 
     data = response.json()
+
     latency_ms = (time.perf_counter() - start) * 1000
 
     return TriageResponse(
         request_id=request_id,
-        model="dpo_v3",
+        model=MODEL_NAME,
         response=data["choices"][0]["text"],
         latency_ms=round(latency_ms, 2),
     )
+
+
+
+MAX_SEQ_LENGTH = 2048
+
+
+def extract_answer(messages: list[RewardBenchMessage]) -> str:
+    for message in messages:
+        if message.role == "assistant":
+            return message.content
+    raise HTTPException(
+        status_code=422,
+        detail="No assistant message found in candidate",
+    )
+
+
+def tokenize_text(text: str) -> list[int]:
+    response = requests.post(
+        f"{VLLM_URL}/tokenize",
+        json={
+            "model": MODEL_NAME,
+            "prompt": text,
+            "truncate_prompt_tokens": MAX_SEQ_LENGTH,
+        },
+        timeout=120,
+    )
+    response.raise_for_status()
+    return response.json()["tokens"]
+
+
+def compute_log_probability(
+    prompt: str,
+    answer: str,
+) -> float:
+    prefix_tokens = tokenize_text(prompt + "\n")
+    full_tokens = tokenize_text(prompt + "\n" + answer)
+
+    if len(full_tokens) <= len(prefix_tokens):
+        raise HTTPException(
+            status_code=422,
+            detail="No answer tokens available for scoring",
+        )
+
+    response = requests.post(
+        f"{VLLM_URL}/v1/completions",
+        json={
+            "model": MODEL_NAME,
+            "prompt": full_tokens,
+            "max_tokens": 1,
+            "temperature": 0.0,
+            "echo": True,
+            "logprobs": 1,
+        },
+        timeout=120,
+    )
+    response.raise_for_status()
+
+    data = response.json()
+    token_logprobs = data["choices"][0]["logprobs"]["token_logprobs"]
+
+    # Exclude prompt tokens and the additional generated token.
+    answer_logprobs = token_logprobs[
+        len(prefix_tokens):len(full_tokens)
+    ]
+
+    scores = [
+        score for score in answer_logprobs
+        if score is not None
+    ]
+
+    if not scores:
+        raise HTTPException(
+            status_code=502,
+            detail="vLLM returned no answer token log-probabilities",
+        )
+
+    return sum(scores) / len(scores)
+
+
+@app.post(
+    "/api/v1/compare",
+    response_model=CompareResponse,
+)
+def compare(request: CompareRequest):
+    request_id = str(uuid.uuid4())
+    start = time.perf_counter()
+
+    chosen = extract_answer(request.chosen)
+    rejected = extract_answer(request.rejected)
+
+    try:
+        chosen_score = compute_log_probability(
+            request.prompt,
+            chosen,
+        )
+
+        rejected_score = compute_log_probability(
+            request.prompt,
+            rejected,
+        )
+
+    except requests.RequestException as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=f"vLLM scoring unavailable: {exc}",
+        )
+
+    if abs(chosen_score - rejected_score) < 1e-8:
+        preferred = "tie"
+    elif chosen_score > rejected_score:
+        preferred = "chosen"
+    else:
+        preferred = "rejected"
+
+    latency_ms = (
+        time.perf_counter() - start
+    ) * 1000
+
+    return CompareResponse(
+        request_id=request_id,
+        model=MODEL_NAME,
+        chosen_score=round(chosen_score, 6),
+        rejected_score=round(rejected_score, 6),
+        preferred=preferred,
+        latency_ms=round(latency_ms, 2),
+    )
+

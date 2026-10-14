@@ -31,3 +31,12 @@ torchaudio = { index = "pytorch-cu130" }
 [[tool.uv.index]]
 name = "pytorch-cu130"
 url = "https://download.pytorch.org/whl/cu130"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+]
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["."]

@@ -30,6 +30,10 @@ MODEL_PATHS = {
     "dpo_v4": "models/dpo_v4",
     "dpo_v5": "models/dpo_v5",
     "dpo_v6": "models/dpo_v6",
+    "dpo_v7": "models/dpo_v7",
+    "dpo_v8": "models/dpo_v8",
+    "dpo_v9": "models/dpo_v9",
+    "dpo_v10": "models/dpo_v10",
 }
 
 

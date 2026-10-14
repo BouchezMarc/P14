@@ -1,0 +1,92 @@
+{
+  "model": "Qwen/Qwen3-1.7B-Base",
+  "training": {
+    "train_runtime": 3130.5165,
+    "train_samples_per_second": 3.833,
+    "train_steps_per_second": 0.479,
+    "total_flos": 2.685213658856448e+16,
+    "train_loss": 0.7141744441986084,
+    "epoch": 3.0
+  },
+  "validation": {
+    "history": [
+      {
+        "eval_loss": 0.7370319962501526,
+        "eval_runtime": 38.4843,
+        "eval_samples_per_second": 12.992,
+        "eval_steps_per_second": 12.992,
+        "epoch": 1.0,
+        "step": 500
+      },
+      {
+        "eval_loss": 0.7261147499084473,
+        "eval_runtime": 38.7183,
+        "eval_samples_per_second": 12.914,
+        "eval_steps_per_second": 12.914,
+        "epoch": 2.0,
+        "step": 1000
+      },
+      {
+        "eval_loss": 0.7471399903297424,
+        "eval_runtime": 38.8559,
+        "eval_samples_per_second": 12.868,
+        "eval_steps_per_second": 12.868,
+        "epoch": 3.0,
+        "step": 1500
+      }
+    ],
+    "best": {
+      "eval_loss": 0.7261147499084473,
+      "eval_runtime": 38.7183,
+      "eval_samples_per_second": 12.914,
+      "eval_steps_per_second": 12.914,
+      "epoch": 2.0,
+      "step": 1000
+    }
+  },
+  "model_selection": {
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": false,
+    "best_model_checkpoint": "models/sft_v3\\checkpoint-1000"
+  },
+  "config": {
+    "epochs_requested": 3.0,
+    "train_examples": 4000,
+    "validation_examples": 500,
+    "max_seq_length": 2048,
+    "lora": {
+      "r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "training": {
+      "per_device_train_batch_size": 1,
+      "per_device_eval_batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.05,
+      "lr_scheduler_type": "cosine",
+      "bf16": true,
+      "fp16": false,
+      "gradient_checkpointing": true,
+      "optim": "adamw_torch_fused"
+    },
+    "prompt": {
+      "version": "sft_v2",
+      "system_instruction": "You are a medical question-answering assistant.\n\nRespond in the same language as the question.\nAnswer only the question asked.\nProvide a clear, factual and clinically relevant answer.\nDo not introduce unrelated diseases, conditions, or topics.\nDo not invent medical facts, diagnoses, treatments, or recommendations.\nWhen the available information is insufficient, state the uncertainty clearly.\nDo not provide dangerous or unsupported medical recommendations.",
+      "format": "{system_instruction}\n\nQuestion:\n{instruction}\n\nAnswer:\n{response}"
+    }
+  }
+}

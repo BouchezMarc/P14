@@ -1,0 +1,23 @@
+services:
+  p14:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: p14:local
+    ports:
+      - "8080:8080"
+    volumes:
+      - huggingface-cache:/root/.cache/huggingface
+    environment:
+      - HF_HOME=/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ipc: host
+
+volumes:
+  huggingface-cache:

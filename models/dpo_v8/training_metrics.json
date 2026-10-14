@@ -1,0 +1,79 @@
+{
+  "experiment": {
+    "name": "dpo_v8",
+    "base_model": "Qwen/Qwen3-1.7B-Base",
+    "sft_model": "sft_v3",
+    "sft_checkpoint": "models\\sft_v3\\checkpoint-1000",
+    "output_dir": "models\\dpo_v8"
+  },
+  "training": {
+    "train_runtime": 3741.6224,
+    "train_samples_per_second": 1.336,
+    "train_steps_per_second": 0.167,
+    "total_flos": 0.0,
+    "train_loss": 0.37311657342910765,
+    "epoch": 1.0
+  },
+  "validation": {
+    "history": [
+      {
+        "eval_loss": 0.2251948118209839,
+        "eval_runtime": 259.2059,
+        "eval_samples_per_second": 3.858,
+        "eval_steps_per_second": 3.858,
+        "epoch": 1.0,
+        "step": 625
+      }
+    ],
+    "best": {
+      "eval_loss": 0.2251948118209839,
+      "eval_runtime": 259.2059,
+      "eval_samples_per_second": 3.858,
+      "eval_steps_per_second": 3.858,
+      "epoch": 1.0,
+      "step": 625
+    }
+  },
+  "model_selection": {
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": false,
+    "best_model_checkpoint": "models\\dpo_v8\\checkpoint-625",
+    "best_metric": 0.2251948118209839
+  },
+  "config": {
+    "dpo": {
+      "beta": 0.1,
+      "loss_type": "sigmoid",
+      "model_adapter_name": "default",
+      "ref_adapter_name": "reference"
+    },
+    "data": {
+      "train_file": "data\\processed\\dataset_dpo_v2\\anonymized\\dpo_train.jsonl",
+      "validation_file": "data\\processed\\dataset_dpo_v2\\anonymized\\dpo_validation.jsonl",
+      "train_examples": 5000,
+      "validation_examples": 1000,
+      "max_length": 2048,
+      "truncation_mode": "keep_end"
+    },
+    "training": {
+      "epochs_requested": 1.0,
+      "per_device_train_batch_size": 1,
+      "per_device_eval_batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "learning_rate": 0.0005,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.05,
+      "lr_scheduler_type": "cosine",
+      "bf16": true,
+      "fp16": false,
+      "gradient_checkpointing": true,
+      "optim": "adamw_torch_fused",
+      "seed": 3407,
+      "data_seed": 3407,
+      "logging_steps": 10,
+      "dataloader_num_workers": 0,
+      "remove_unused_columns": false
+    }
+  }
+}
