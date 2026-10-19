@@ -1,15 +1,42 @@
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from datetime import datetime, timezone
+from pathlib import Path
+from threading import Lock
+from typing import Literal
+import json
 import os
 import time
 import uuid
 import requests
-from typing import Literal
-
-# VLLM_URL = os.getenv("VLLM_URL", "http://p14-vllm:8000")
 
 VLLM_URL = os.getenv("VLLM_URL", "http://127.0.0.1:8000")
 MODEL_NAME = os.getenv("MODEL_NAME", "dpo_v8")
+
+# Répertoire de journalisation configurable par variable d'environnement.
+LOG_DIR = Path(os.getenv("LOG_DIR", "logs"))
+LOG_FILE = LOG_DIR / "p14_api.jsonl"
+LOG_LOCK = Lock()
+
+
+def write_log(event: dict) -> None:
+    """Ajoute un événement JSON sur une nouvelle ligne du fichier local."""
+    record = {
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        **event,
+    }
+
+    try:
+        LOG_DIR.mkdir(parents=True, exist_ok=True)
+        with LOG_LOCK:
+            with LOG_FILE.open("a", encoding="utf-8") as file:
+                file.write(
+                    json.dumps(record, ensure_ascii=False, default=str) + "\n"
+                )
+    except OSError as exc:
+        # Une panne de journalisation ne doit pas masquer la réponse API.
+        print(f"[LOGGING ERROR] Impossible d'écrire {LOG_FILE}: {exc}")
 
 
 app = FastAPI(
@@ -50,6 +77,7 @@ class CompareResponse(BaseModel):
     preferred: Literal["chosen", "rejected", "tie"]
     latency_ms: float
 
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -66,8 +94,6 @@ def version():
 @app.post("/api/v1/triage", response_model=TriageResponse)
 def triage(request: TriageRequest):
     request_id = str(uuid.uuid4())
-
-    # Début de mesure du temps de réponse total
     start = time.perf_counter()
 
     prompt = (
@@ -90,28 +116,68 @@ def triage(request: TriageRequest):
             timeout=120,
         )
         response.raise_for_status()
+        data = response.json()
+
+        answer = data["choices"][0]["text"]
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
+
+        write_log({
+            "event": "triage",
+            "status": "success",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "question": request.question,
+            "response": answer,
+            "max_tokens": request.max_tokens,
+            "temperature": request.temperature,
+            "latency_ms": latency_ms,
+        })
+
+        return TriageResponse(
+            request_id=request_id,
+            model=MODEL_NAME,
+            response=answer,
+            latency_ms=latency_ms,
+        )
+
     except requests.RequestException as exc:
-        latency_ms = (time.perf_counter() - start) * 1000
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
+
+        write_log({
+            "event": "triage",
+            "status": "error",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "question": request.question,
+            "latency_ms": latency_ms,
+            "error": str(exc),
+        })
 
         raise HTTPException(
             status_code=502,
             detail={
                 "error": f"vLLM unavailable: {exc}",
-                "latency_ms": round(latency_ms, 2),
+                "latency_ms": latency_ms,
             },
         )
 
-    data = response.json()
+    except (ValueError, KeyError) as exc:
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
 
-    latency_ms = (time.perf_counter() - start) * 1000
+        write_log({
+            "event": "triage",
+            "status": "error",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "question": request.question,
+            "latency_ms": latency_ms,
+            "error": str(exc),
+        })
 
-    return TriageResponse(
-        request_id=request_id,
-        model=MODEL_NAME,
-        response=data["choices"][0]["text"],
-        latency_ms=round(latency_ms, 2),
-    )
-
+        raise HTTPException(
+            status_code=502,
+            detail="Invalid response returned by vLLM",
+        )
 
 
 MAX_SEQ_LENGTH = 2048
@@ -121,6 +187,7 @@ def extract_answer(messages: list[RewardBenchMessage]) -> str:
     for message in messages:
         if message.role == "assistant":
             return message.content
+
     raise HTTPException(
         status_code=422,
         detail="No assistant message found in candidate",
@@ -141,10 +208,7 @@ def tokenize_text(text: str) -> list[int]:
     return response.json()["tokens"]
 
 
-def compute_log_probability(
-    prompt: str,
-    answer: str,
-) -> float:
+def compute_log_probability(prompt: str, answer: str) -> float:
     prefix_tokens = tokenize_text(prompt + "\n")
     full_tokens = tokenize_text(prompt + "\n" + answer)
 
@@ -171,15 +235,12 @@ def compute_log_probability(
     data = response.json()
     token_logprobs = data["choices"][0]["logprobs"]["token_logprobs"]
 
-    # Exclude prompt tokens and the additional generated token.
+    # Exclut les tokens du préfixe et le token généré en supplément.
     answer_logprobs = token_logprobs[
         len(prefix_tokens):len(full_tokens)
     ]
 
-    scores = [
-        score for score in answer_logprobs
-        if score is not None
-    ]
+    scores = [score for score in answer_logprobs if score is not None]
 
     if not scores:
         raise HTTPException(
@@ -190,51 +251,99 @@ def compute_log_probability(
     return sum(scores) / len(scores)
 
 
-@app.post(
-    "/api/v1/compare",
-    response_model=CompareResponse,
-)
+@app.post("/api/v1/compare", response_model=CompareResponse)
 def compare(request: CompareRequest):
     request_id = str(uuid.uuid4())
     start = time.perf_counter()
 
-    chosen = extract_answer(request.chosen)
-    rejected = extract_answer(request.rejected)
-
     try:
-        chosen_score = compute_log_probability(
-            request.prompt,
-            chosen,
+        chosen = extract_answer(request.chosen)
+        rejected = extract_answer(request.rejected)
+
+        chosen_score = compute_log_probability(request.prompt, chosen)
+        rejected_score = compute_log_probability(request.prompt, rejected)
+
+        if abs(chosen_score - rejected_score) < 1e-8:
+            preferred = "tie"
+        elif chosen_score > rejected_score:
+            preferred = "chosen"
+        else:
+            preferred = "rejected"
+
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
+
+        write_log({
+            "event": "compare",
+            "status": "success",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "prompt": request.prompt,
+            "chosen": chosen,
+            "rejected": rejected,
+            "chosen_score": round(chosen_score, 6),
+            "rejected_score": round(rejected_score, 6),
+            "preferred": preferred,
+            "latency_ms": latency_ms,
+        })
+
+        return CompareResponse(
+            request_id=request_id,
+            model=MODEL_NAME,
+            chosen_score=round(chosen_score, 6),
+            rejected_score=round(rejected_score, 6),
+            preferred=preferred,
+            latency_ms=latency_ms,
         )
 
-        rejected_score = compute_log_probability(
-            request.prompt,
-            rejected,
-        )
+    except HTTPException as exc:
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
+
+        write_log({
+            "event": "compare",
+            "status": "error",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "prompt": request.prompt,
+            "latency_ms": latency_ms,
+            "http_status": exc.status_code,
+            "error": exc.detail,
+        })
+        raise
 
     except requests.RequestException as exc:
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
+
+        write_log({
+            "event": "compare",
+            "status": "error",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "prompt": request.prompt,
+            "latency_ms": latency_ms,
+            "http_status": 502,
+            "error": str(exc),
+        })
+
         raise HTTPException(
             status_code=502,
             detail=f"vLLM scoring unavailable: {exc}",
         )
 
-    if abs(chosen_score - rejected_score) < 1e-8:
-        preferred = "tie"
-    elif chosen_score > rejected_score:
-        preferred = "chosen"
-    else:
-        preferred = "rejected"
+    except (ValueError, KeyError, TypeError) as exc:
+        latency_ms = round((time.perf_counter() - start) * 1000, 2)
 
-    latency_ms = (
-        time.perf_counter() - start
-    ) * 1000
+        write_log({
+            "event": "compare",
+            "status": "error",
+            "request_id": request_id,
+            "model": MODEL_NAME,
+            "prompt": request.prompt,
+            "latency_ms": latency_ms,
+            "http_status": 502,
+            "error": str(exc),
+        })
 
-    return CompareResponse(
-        request_id=request_id,
-        model=MODEL_NAME,
-        chosen_score=round(chosen_score, 6),
-        rejected_score=round(rejected_score, 6),
-        preferred=preferred,
-        latency_ms=round(latency_ms, 2),
-    )
-
+        raise HTTPException(
+            status_code=502,
+            detail="Invalid scoring response returned by vLLM",
+        )

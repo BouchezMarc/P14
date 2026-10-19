@@ -84,7 +84,7 @@
       "optim": "adamw_torch_fused"
     },
     "prompt": {
-      "version": "sft_v2",
+      "version": "sft_v3",
       "system_instruction": "You are a medical question-answering assistant.\n\nRespond in the same language as the question.\nAnswer only the question asked.\nProvide a clear, factual and clinically relevant answer.\nDo not introduce unrelated diseases, conditions, or topics.\nDo not invent medical facts, diagnoses, treatments, or recommendations.\nWhen the available information is insufficient, state the uncertainty clearly.\nDo not provide dangerous or unsupported medical recommendations.",
       "format": "{system_instruction}\n\nQuestion:\n{instruction}\n\nAnswer:\n{response}"
     }
